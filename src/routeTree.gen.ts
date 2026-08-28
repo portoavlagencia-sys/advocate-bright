@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
+import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,38 @@ const AreasDeAtuacaoRoute = AreasDeAtuacaoRouteImport.update({
   path: '/areas-de-atuacao',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/areas-de-atuacao'
+  fullPaths: '/' | '/areas-de-atuacao' | '/areas-de-atuacao/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/areas-de-atuacao'
-  id: '__root__' | '/' | '/areas-de-atuacao'
+  id: '__root__' | '/' | '/areas-de-atuacao' | '/areas-de-atuacao/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRoute
+  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +73,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AreasDeAtuacaoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas-de-atuacao/': {
+      id: '/areas-de-atuacao/'
+      path: '/'
+      fullPath: '/areas-de-atuacao/'
+      preLoaderRoute: typeof AreasDeAtuacaoIndexRouteImport
+      parentRoute: typeof AreasDeAtuacaoRoute
+    }
   }
 }
 
+interface AreasDeAtuacaoRouteChildren {
+  AreasDeAtuacaoIndexRoute: typeof AreasDeAtuacaoIndexRoute
+}
+
+const AreasDeAtuacaoRouteChildren: AreasDeAtuacaoRouteChildren = {
+  AreasDeAtuacaoIndexRoute: AreasDeAtuacaoIndexRoute,
+}
+
+const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
+  AreasDeAtuacaoRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AreasDeAtuacaoRoute: AreasDeAtuacaoRoute,
+  AreasDeAtuacaoRoute: AreasDeAtuacaoRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

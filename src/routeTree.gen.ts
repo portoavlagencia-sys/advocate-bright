@@ -10,33 +10,146 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BrasileirosNoExteriorRouteImport } from './routes/brasileiros-no-exterior'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as EscritorioRouteImport } from './routes/escritorio'
+import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
+import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreasDeAtuacaoRoute = AreasDeAtuacaoRouteImport.update({
+  id: '/areas-de-atuacao',
+  path: '/areas-de-atuacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrasileirosNoExteriorRoute = BrasileirosNoExteriorRouteImport.update({
+  id: '/brasileiros-no-exterior',
+  path: '/brasileiros-no-exterior',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscritorioRoute = EscritorioRouteImport.update({
+  id: '/escritorio',
+  path: '/escritorio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
+const AreasDeAtuacaoSlugRoute = AreasDeAtuacaoSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
+  '/contato': typeof ContatoRoute
+  '/escritorio': typeof EscritorioRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
+  '/contato': typeof ContatoRoute
+  '/escritorio': typeof EscritorioRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
+  '/contato': typeof ContatoRoute
+  '/escritorio': typeof EscritorioRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/areas-de-atuacao'
+    | '/blog'
+    | '/brasileiros-no-exterior'
+    | '/contato'
+    | '/escritorio'
+    | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
+    | '/areas-de-atuacao/'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/brasileiros-no-exterior'
+    | '/contato'
+    | '/escritorio'
+    | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
+    | '/areas-de-atuacao'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/areas-de-atuacao'
+    | '/blog'
+    | '/brasileiros-no-exterior'
+    | '/contato'
+    | '/escritorio'
+    | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
+    | '/areas-de-atuacao/'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRouteWithChildren
+  BlogRoute: typeof BlogRouteWithChildren
+  BrasileirosNoExteriorRoute: typeof BrasileirosNoExteriorRoute
+  ContatoRoute: typeof ContatoRoute
+  EscritorioRoute: typeof EscritorioRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +161,105 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas-de-atuacao': {
+      id: '/areas-de-atuacao'
+      path: '/areas-de-atuacao'
+      fullPath: '/areas-de-atuacao'
+      preLoaderRoute: typeof AreasDeAtuacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brasileiros-no-exterior': {
+      id: '/brasileiros-no-exterior'
+      path: '/brasileiros-no-exterior'
+      fullPath: '/brasileiros-no-exterior'
+      preLoaderRoute: typeof BrasileirosNoExteriorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escritorio': {
+      id: '/escritorio'
+      path: '/escritorio'
+      fullPath: '/escritorio'
+      preLoaderRoute: typeof EscritorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-de-atuacao/': {
+      id: '/areas-de-atuacao/'
+      path: '/'
+      fullPath: '/areas-de-atuacao/'
+      preLoaderRoute: typeof AreasDeAtuacaoIndexRouteImport
+      parentRoute: typeof AreasDeAtuacaoRoute
+    }
+    '/areas-de-atuacao/$slug': {
+      id: '/areas-de-atuacao/$slug'
+      path: '/$slug'
+      fullPath: '/areas-de-atuacao/$slug'
+      preLoaderRoute: typeof AreasDeAtuacaoSlugRouteImport
+      parentRoute: typeof AreasDeAtuacaoRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
+interface AreasDeAtuacaoRouteChildren {
+  AreasDeAtuacaoSlugRoute: typeof AreasDeAtuacaoSlugRoute
+  AreasDeAtuacaoIndexRoute: typeof AreasDeAtuacaoIndexRoute
+}
+
+const AreasDeAtuacaoRouteChildren: AreasDeAtuacaoRouteChildren = {
+  AreasDeAtuacaoSlugRoute: AreasDeAtuacaoSlugRoute,
+  AreasDeAtuacaoIndexRoute: AreasDeAtuacaoIndexRoute,
+}
+
+const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
+  AreasDeAtuacaoRouteChildren,
+)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasDeAtuacaoRoute: AreasDeAtuacaoRouteWithChildren,
+  BlogRoute: BlogRouteWithChildren,
+  BrasileirosNoExteriorRoute: BrasileirosNoExteriorRoute,
+  ContatoRoute: ContatoRoute,
+  EscritorioRoute: EscritorioRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

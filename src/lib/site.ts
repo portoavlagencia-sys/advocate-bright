@@ -3,7 +3,7 @@ export const site = {
   lawyer: "Edmom Moraes",
   oab: "OAB/GO (a informar)",
   phoneDisplay: "(62) 8206-0993",
-  whatsappNumber: "5562820609930".slice(0, 12), // 55 + 62 + número
+  whatsappNumber: "556282060993",
   email: "contato@edmommoraes.adv.br",
   instagram: "@edmommoraes.adv",
   instagramUrl: "https://instagram.com/",

@@ -29,7 +29,7 @@ const inputClass =
 
 function ContatoPage() {
   const [name, setName] = useState("");
-  const [area, setArea] = useState(areas[0].title);
+  const [area, setArea] = useState(areas[0]?.title ?? "Outro assunto");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -17,6 +17,7 @@ import { Route as EscritorioRouteImport } from './routes/escritorio'
 import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/escritorio': typeof EscritorioRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/escritorio': typeof EscritorioRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/escritorio': typeof EscritorioRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/escritorio'
     | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
     | '/areas-de-atuacao/'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/escritorio'
     | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
     | '/areas-de-atuacao'
     | '/blog'
   id:
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/escritorio'
     | '/areas-de-atuacao/$slug'
+    | '/blog/$slug'
     | '/areas-de-atuacao/'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -185,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
@@ -203,10 +222,12 @@ const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
 )
 
 interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 

@@ -245,7 +245,7 @@ function AreaPage() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
-            <div className="flex flex-wrap items-end justify-between gap-8 border border-border bg-surface p-7 sm:p-10 lg:p-14">
+            <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:flex-wrap sm:items-end border border-border bg-surface p-7 sm:p-10 lg:p-14">
               <div className="max-w-2xl">
                 <span className="eyebrow text-green-bright">Próximo passo</span>
                 <h2 className="mt-6 text-2xl font-light leading-[1.15] tracking-tight sm:text-3xl">

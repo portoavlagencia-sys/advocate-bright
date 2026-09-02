@@ -109,7 +109,7 @@ function EscritorioPage() {
       </section>
 
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <Reveal>
             <span className="eyebrow text-green-bright">Como trabalhamos</span>
           </Reveal>

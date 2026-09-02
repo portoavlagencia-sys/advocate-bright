@@ -14,7 +14,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative border-b border-border bg-background">
-      <div className="mx-auto max-w-[84rem] px-6 pb-20 pt-24 lg:px-10 lg:pb-28 lg:pt-32">
+      <div className="mx-auto max-w-[84rem] px-5 sm:px-6 pb-20 pt-24 lg:px-10 lg:pb-28 lg:pt-32">
         <Reveal>
           <span className="eyebrow text-green-bright">{eyebrow}</span>
           <span className="rule-green mt-5" />

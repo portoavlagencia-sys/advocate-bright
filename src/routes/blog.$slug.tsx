@@ -81,7 +81,7 @@ function PostPage() {
       </article>
 
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
             <span className="eyebrow text-green-bright">Continue lendo</span>
           </Reveal>

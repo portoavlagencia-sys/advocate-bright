@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-edmom-moraes.png.asset.json";
 import { areas, site, whatsappLink } from "@/lib/site";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const linkBase =
   "text-[0.8rem] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-foreground";
@@ -87,16 +88,19 @@ export function Header() {
           >
             Falar no WhatsApp
           </a>
+          <ThemeToggle />
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="lg:hidden"
-          aria-label="Abrir menu"
-        >
-          <Menu className="size-6" />
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Abrir menu"
+          >
+            <Menu className="size-6" />
+          </button>
+        </div>
       </div>
 
       {open && (

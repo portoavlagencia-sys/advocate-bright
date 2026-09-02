@@ -20,7 +20,7 @@ export function Header() {
             alt={`${site.name} — logotipo`}
             width={160}
             height={160}
-            className="h-11 w-11 object-contain brightness-0 invert"
+            className="h-11 w-11 object-contain brightness-0 invert [.light_&]:invert-0"
           />
           <span className="hidden leading-tight sm:block">
             <span className="block text-[0.9rem] font-semibold tracking-[0.14em] text-foreground">

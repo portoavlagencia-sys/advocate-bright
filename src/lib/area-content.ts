@@ -383,3 +383,26 @@ export const homeFaq: FaqItem[] = [
     a: "Na maioria dos casos, não. Com procuração assinada em consulado ou com apostila de Haia, inventários, divórcios, vendas de imóvel e ações trabalhistas podem ser conduzidos integralmente à distância.",
   },
 ];
+
+export const areaAbout: Record<string, string[]> = {
+  "direito-trabalhista": [
+    "Quem cuida dos casos trabalhistas do escritório é Edmom Moraes. O atendimento começa pela leitura do que você tem em mãos: carteira, holerite, ponto, conversa de WhatsApp com a chefia. É desse material que sai a conta do que a empresa deixou de pagar.",
+    "Boa parte dos casos se resolve sem anos de processo, em acordo homologado. Quando a empresa não senta para conversar, a ação é ajuizada com a prova já organizada e o cliente sabe, desde o início, quais pedidos são sólidos e quais são discutíveis.",
+    "Atendimento em Goiânia e, por vídeo, em audiências e reuniões de qualquer lugar do Brasil.",
+  ],
+  "regularizacao-de-imoveis": [
+    "Os casos de imóvel são conduzidos por Edmom Moraes, do estudo da matrícula até o registro final. Antes de qualquer medida, o escritório confere matrícula, IPTU, certidões do vendedor e o histórico da posse. É aí que aparecem os problemas que travam o negócio depois.",
+    "Compra desfeita, leilão, usucapião e escritura que o vendedor não assina têm caminhos diferentes, e nem todos passam pelo Judiciário. Cartório e acordo resolvem mais coisa do que parece, e costumam custar menos.",
+    "O cliente acompanha cada etapa e recebe aviso quando algum documento precisa ser providenciado.",
+  ],
+  "direito-sucessorio": [
+    "Inventários e planejamento sucessório ficam com Edmom Moraes. O primeiro contato costuma acontecer num momento difícil, e o escritório procura conduzir com calma: levantar os bens, ver quem são os herdeiros e explicar o custo real do procedimento antes de começar.",
+    "Quando há acordo entre os herdeiros e nenhum incapaz envolvido, o inventário pode sair em cartório, em semanas. Havendo disputa ou testamento, o caminho é judicial, e o escritório atua para reduzir o desgaste entre as partes.",
+    "Herdeiro que mora fora do Brasil participa por procuração, sem precisar viajar.",
+  ],
+  "direito-de-familia": [
+    "As causas de família são atendidas diretamente por Edmom Moraes, com discrição. Divórcio, guarda e pensão envolvem informação sensível, e o escritório trata cada caso com reserva, sem exposição desnecessária.",
+    "Sempre que existe abertura para conversa, o acordo vem antes: sai mais rápido, custa menos e poupa as crianças do meio do conflito. Quando não há acordo possível, a atuação é firme e o pedido vai instruído com o que a Justiça precisa ver.",
+    "Atendimento presencial em Goiânia e por videoconferência, inclusive para quem mora no exterior.",
+  ],
+};

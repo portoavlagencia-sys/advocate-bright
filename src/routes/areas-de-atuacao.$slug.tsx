@@ -5,7 +5,8 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { FAQ } from "@/components/FAQ";
 import { areas, site, whatsappLink } from "@/lib/site";
-import { areaContent } from "@/lib/area-content";
+import { areaContent, areaAbout } from "@/lib/area-content";
+import { QuemSomosArea } from "@/components/QuemSomosArea";
 
 export const Route = createFileRoute("/areas-de-atuacao/$slug")({
   loader: ({ params }) => {
@@ -61,18 +62,18 @@ function AreaPage() {
         title={area.title}
         lead={content.heroLead}
       >
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <a
             href={whatsappLink(content.whatsappMessage)}
             target="_blank"
             rel="noreferrer"
-            className="bg-primary px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
+            className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright sm:px-8"
           >
             Analisar meu caso
           </a>
           <Link
             to="/contato"
-            className="group inline-flex items-center gap-2 border border-border px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
+            className="group inline-flex items-center justify-center gap-2 border border-border px-7 py-4 sm:px-8 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
           >
             Enviar documentos
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -100,7 +101,7 @@ function AreaPage() {
 
       {/* TEXTO EDITORIAL */}
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-[84rem] gap-12 px-6 py-20 lg:grid-cols-[0.7fr_1.3fr] lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-[84rem] gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.7fr_1.3fr] lg:px-10 lg:py-28">
           <Reveal>
             <span className="eyebrow text-green-bright">Entenda a área</span>
             <span className="rule-green mt-5" />
@@ -120,7 +121,7 @@ function AreaPage() {
 
       {/* QUANDO PROCURAR */}
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <Reveal>
             <span className="eyebrow text-green-bright">Quando procurar um advogado</span>
             <h2 className="mt-8 max-w-3xl text-2xl font-light leading-[1.15] tracking-tight sm:text-3xl lg:text-4xl">
@@ -144,7 +145,7 @@ function AreaPage() {
 
       {/* DEMANDAS ATENDIDAS */}
       <section className="border-b border-border">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <Reveal>
             <span className="eyebrow text-green-bright">Demandas atendidas</span>
             <h2 className="mt-8 max-w-3xl text-2xl font-light leading-[1.15] tracking-tight sm:text-3xl lg:text-4xl">
@@ -154,7 +155,7 @@ function AreaPage() {
           <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2">
             {area.services.map((service, i) => (
               <Reveal key={service.title} delay={i * 0.04} className="bg-background">
-                <div className="h-full p-8 lg:p-10">
+                <div className="h-full p-7 sm:p-8 lg:p-10">
                   <span className="text-xs tracking-[0.2em] text-green-bright">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -173,7 +174,7 @@ function AreaPage() {
 
       {/* COMO CONDUZIMOS + DOCUMENTOS */}
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto grid max-w-[84rem] gap-16 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-[84rem] gap-12 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-28">
           <div>
             <Reveal>
               <span className="eyebrow text-green-bright">Como conduzimos</span>
@@ -200,7 +201,7 @@ function AreaPage() {
             </div>
           </div>
           <Reveal delay={0.1}>
-            <div className="border border-border bg-background p-8 lg:p-10">
+            <div className="border border-border bg-background p-7 sm:p-8 lg:p-10">
               <FileText className="size-5 text-green-bright" aria-hidden />
               <h3 className="mt-6 text-lg font-medium">Documentos que ajudam na análise</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -228,6 +229,12 @@ function AreaPage() {
         </div>
       </section>
 
+      <QuemSomosArea
+        areaTitle={area.title}
+        paragraphs={areaAbout[area.slug] ?? []}
+        whatsappMessage={content.whatsappMessage}
+      />
+
       <FAQ
         items={content.faq}
         eyebrow={`FAQ · ${area.title}`}
@@ -236,9 +243,9 @@ function AreaPage() {
 
       {/* CTA INTERMEDIÁRIO */}
       <section className="border-b border-border">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
-            <div className="flex flex-wrap items-end justify-between gap-8 border border-border bg-surface p-10 lg:p-14">
+            <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:flex-wrap sm:items-end border border-border bg-surface p-7 sm:p-10 lg:p-14">
               <div className="max-w-2xl">
                 <span className="eyebrow text-green-bright">Próximo passo</span>
                 <h2 className="mt-6 text-2xl font-light leading-[1.15] tracking-tight sm:text-3xl">
@@ -252,7 +259,7 @@ function AreaPage() {
                 href={whatsappLink(content.whatsappMessage)}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-primary px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
+                className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright sm:px-8"
               >
                 Falar com o advogado
               </a>
@@ -263,7 +270,7 @@ function AreaPage() {
 
       {/* OUTRAS ÁREAS */}
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
             <span className="eyebrow text-green-bright">Outras áreas</span>
           </Reveal>

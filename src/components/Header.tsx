@@ -32,7 +32,7 @@ export function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-[84rem] items-center justify-between px-6 transition-[height] duration-500 lg:px-10 ${
+        className={`mx-auto flex max-w-[84rem] items-center justify-between px-5 transition-[height] sm:px-6 duration-500 lg:px-10 ${
           scrolled ? "h-16" : "h-20"
         }`}
       >
@@ -157,7 +157,7 @@ export function Header() {
             transition={{ duration: 0.5, ease }}
             className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden"
           >
-            <div className="flex h-20 items-center justify-between px-6">
+            <div className="flex h-20 items-center justify-between px-5 sm:px-6">
               <span className="text-[0.6rem] tracking-[0.34em] text-green-bright">
                 ADVOCACIA
               </span>
@@ -170,7 +170,7 @@ export function Header() {
                 <X className="size-6" />
               </button>
             </div>
-            <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 pb-12">
+            <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 pb-12 sm:px-6">
               {[
                 { to: "/", label: "Home" },
                 { to: "/areas-de-atuacao", label: "Áreas de Atuação" },

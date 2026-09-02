@@ -11,7 +11,7 @@ export function CTASection({
 }) {
   return (
     <section className="border-t border-border bg-green-deep">
-      <div className="mx-auto max-w-[84rem] px-6 py-24 lg:px-10 lg:py-32">
+      <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
         <Reveal>
           <span className="eyebrow text-primary-foreground/70">Fale com o escritório</span>
           <h2 className="mt-8 max-w-3xl text-3xl font-light leading-[1.12] tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
@@ -20,7 +20,7 @@ export function CTASection({
           <p className="mt-8 max-w-xl text-base leading-relaxed text-primary-foreground/80">
             {text}
           </p>
-          <div className="mt-12 flex flex-wrap items-center gap-4">
+          <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a
               href={whatsappLink()}
               target="_blank"

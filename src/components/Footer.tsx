@@ -5,7 +5,7 @@ import { areas, site, whatsappLink } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img

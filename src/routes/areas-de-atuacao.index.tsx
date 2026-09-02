@@ -47,7 +47,7 @@ function AreasIndex() {
                 <Link
                   to="/areas-de-atuacao/$slug"
                   params={{ slug: area.slug }}
-                  className="group grid gap-6 py-12 transition-colors hover:bg-surface/60 lg:grid-cols-[6rem_1fr_1fr] lg:items-start"
+                  className="group grid gap-6 px-2 py-12 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-surface/60 hover:px-5 lg:grid-cols-[6rem_1fr_1fr] lg:items-start"
                 >
                   <span className="text-xs tracking-[0.2em] text-green-bright">
                     {area.number}

@@ -147,6 +147,8 @@
   width: 3rem;
   height: 2px;
   background-color: var(--color-green-bright);
+  transform-origin: left;
+  animation: rule-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @utility eyebrow {
@@ -157,7 +159,64 @@
 }
 
 @utility marquee-track {
-  animation: marquee 32s linear infinite;
+  animation: marquee 42s linear infinite;
+  will-change: transform;
+}
+
+/* Elevação sutil em cards e blocos clicáveis */
+@utility hover-lift {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease,
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px -32px color-mix(in oklab, var(--color-green-bright) 55%, transparent);
+  }
+}
+
+/* Sublinhado que cresce da esquerda */
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color: var(--color-green-bright);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Zoom lento em imagens editoriais */
+@utility img-slow-zoom {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes rule-grow {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 @keyframes marquee {
@@ -166,5 +225,16 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -5,6 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
 import { posts } from "@/lib/blog";
+import { SobreAdvogado } from "@/components/SobreAdvogado";
+import { FAQ } from "@/components/FAQ";
+import { homeFaq } from "@/lib/area-content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,26 +66,31 @@ function Home() {
           alt="Sala de reuniões do escritório ao entardecer"
           width={1600}
           height={1200}
-          className="absolute inset-0 size-full object-cover opacity-35"
+          className="absolute inset-0 size-full object-cover opacity-35 [.light_&]:opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-6 pb-28 pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <Reveal>
-            <span className="eyebrow text-green-bright">Advocacia · Brasil e exterior</span>
+            <span className="eyebrow text-green-bright">
+              Advocacia em Goiânia · Brasil e exterior
+            </span>
             <span className="rule-green mt-5" />
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="mt-10 max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]">
-              Direito é técnica.
+              Advogado em Goiânia para
               <br />
-              <span className="font-medium">Confiança é conduta.</span>
+              <span className="font-medium">
+                trabalho, imóveis, herança e família.
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-10 max-w-xl text-lg font-light leading-relaxed text-muted-foreground">
-              Atuação em Direito Trabalhista, Regularização de Imóveis, Sucessões e
-              Família — com acompanhamento direto do advogado responsável, do primeiro
-              contato à decisão final.
+            <p className="mt-10 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
+              Rescisão indireta, verbas não pagas, usucapião, inventário, divórcio e
+              pensão alimentícia. O escritório analisa documentos, prazos e chance real de
+              êxito antes de propor qualquer medida — e o advogado responsável acompanha o
+              caso do primeiro contato à decisão final, presencialmente ou 100% online.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -103,6 +111,15 @@ function Home() {
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+              <li>Atendimento presencial e online</li>
+              <li className="text-green-bright">·</li>
+              <li>Resposta no mesmo dia útil</li>
+              <li className="text-green-bright">·</li>
+              <li>Atuação em todo o Brasil</li>
+            </ul>
           </Reveal>
         </div>
       </section>
@@ -201,38 +218,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ESCRITÓRIO */}
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-[84rem] gap-14 px-6 py-24 lg:grid-cols-2 lg:px-10 lg:py-32">
-          <Reveal>
-            <span className="eyebrow text-green-bright">Quem conduz</span>
-            <h2 className="mt-8 text-3xl font-light leading-[1.12] tracking-tight sm:text-4xl">
-              Um escritório pequeno por escolha, para que nenhum caso vire número.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
-              <p>
-                A advocacia do escritório parte de uma premissa simples: o cliente precisa
-                entender o próprio processo. Cada etapa é explicada em linguagem clara,
-                com prazos reais e cenários possíveis — inclusive os desfavoráveis.
-              </p>
-              <p>
-                O atendimento é conduzido diretamente pelo advogado responsável, por
-                WhatsApp, videochamada ou presencialmente, conforme a necessidade de cada
-                cliente.
-              </p>
-              <Link
-                to="/escritorio"
-                className="inline-flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] text-green-bright hover:underline"
-              >
-                Conhecer o escritório
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* QUEM CONDUZ */}
+      <SobreAdvogado />
 
       {/* BLOG */}
       <section className="border-b border-border">
@@ -275,6 +262,12 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <FAQ
+        items={homeFaq}
+        eyebrow="Perguntas frequentes"
+        title="O que as pessoas perguntam antes de contratar um advogado"
+      />
 
       <CTASection />
     </>

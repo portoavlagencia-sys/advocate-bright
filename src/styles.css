@@ -86,6 +86,40 @@
   --ring: oklch(0.58 0.115 160);
 }
 
+/* Tema claro — acionado pelo botão no menu (classe .light no <html>) */
+.light {
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.17 0.004 160);
+
+  --surface: oklch(0.965 0.003 160);
+  --surface-foreground: oklch(0.17 0.004 160);
+  --card: oklch(0.98 0.002 160);
+  --card-foreground: oklch(0.17 0.004 160);
+  --popover: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.17 0.004 160);
+
+  --primary: oklch(0.36 0.08 160);
+  --primary-foreground: oklch(0.99 0 0);
+  --green-deep: oklch(0.3 0.072 160);
+  --green-bright: oklch(0.44 0.1 160);
+
+  --secondary: oklch(0.95 0.004 160);
+  --secondary-foreground: oklch(0.17 0.004 160);
+  --muted: oklch(0.95 0.004 160);
+  --muted-foreground: oklch(0.44 0.008 160);
+  --accent: oklch(0.36 0.08 160);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --ink: oklch(0.17 0.004 160);
+  --ink-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.17 0.004 160 / 14%);
+  --input: oklch(0.17 0.004 160 / 20%);
+  --ring: oklch(0.44 0.1 160);
+}
+
+
+
 @layer base {
   * {
     border-color: var(--color-border);

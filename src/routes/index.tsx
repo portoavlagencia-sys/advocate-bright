@@ -85,11 +85,12 @@ function Home() {
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-10 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
-              Rescisão indireta, verbas não pagas, usucapião, inventário, divórcio e
-              pensão alimentícia. O escritório analisa documentos, prazos e chance real de
-              êxito antes de propor qualquer medida — e o advogado responsável acompanha o
-              caso do primeiro contato à decisão final, presencialmente ou 100% online.
+            <p className="mt-10 max-w-2xl text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
+              Verbas rescisórias que não caíram na conta, um inventário parado há anos, a
+              escritura que o vendedor não assina, a pensão que deixou de ser paga. São
+              esses os casos que chegam aqui. Você manda os documentos pelo WhatsApp, o
+              advogado lê, diz o que dá para fazer e em quanto tempo. Atendimento em
+              Goiânia ou por vídeo, de onde você estiver.
             </p>
           </Reveal>
           <Reveal delay={0.3}>

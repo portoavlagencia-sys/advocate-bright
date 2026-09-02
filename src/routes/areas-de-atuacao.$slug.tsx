@@ -7,6 +7,29 @@ import { FAQ } from "@/components/FAQ";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { areaContent, areaAbout } from "@/lib/area-content";
 import { QuemSomosArea } from "@/components/QuemSomosArea";
+import fotoTrabalhista from "@/assets/foto-obra-trabalhador.webp";
+import fotoImoveis from "@/assets/foto-chaves-imovel.webp";
+import fotoSucessorio from "@/assets/foto-assinatura-documento.webp";
+import fotoFamilia from "@/assets/foto-familia-maos.webp";
+
+const areaPhotos: Record<string, { src: string; alt: string }> = {
+  "direito-trabalhista": {
+    src: fotoTrabalhista,
+    alt: "Trabalhador em canteiro de obras",
+  },
+  "regularizacao-de-imoveis": {
+    src: fotoImoveis,
+    alt: "Chaves sobre a mesa após a compra de um imóvel",
+  },
+  "direito-sucessorio": {
+    src: fotoSucessorio,
+    alt: "Assinatura de documento em cartório",
+  },
+  "direito-de-familia": {
+    src: fotoFamilia,
+    alt: "Mãos de adulto e criança unidas",
+  },
+};
 
 export const Route = createFileRoute("/areas-de-atuacao/$slug")({
   loader: ({ params }) => {
@@ -61,6 +84,8 @@ function AreaPage() {
         eyebrow={`Área ${area.number}`}
         title={area.title}
         lead={content.heroLead}
+        image={areaPhotos[area.slug]?.src}
+        imageAlt={areaPhotos[area.slug]?.alt}
       >
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <a

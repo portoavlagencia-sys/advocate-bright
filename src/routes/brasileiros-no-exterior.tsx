@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { exteriorServices, site } from "@/lib/site";
+import fotoPassaporte from "@/assets/foto-passaporte-exterior.webp";
 
 export const Route = createFileRoute("/brasileiros-no-exterior")({
   head: () => ({
@@ -52,6 +53,8 @@ function ExteriorPage() {
   return (
     <>
       <PageHero
+        image={fotoPassaporte}
+        imageAlt="Passaporte brasileiro sobre mapa, representando clientes que moram fora"
         eyebrow="Atendimento remoto"
         title={
           <>

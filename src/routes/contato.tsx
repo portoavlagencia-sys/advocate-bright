@@ -4,6 +4,7 @@ import { Mail, MessageCircle, Instagram, Clock, MapPin } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { areas, site, whatsappLink } from "@/lib/site";
+import fotoEscritorio from "@/assets/foto-escritorio-interior.webp";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -41,6 +42,8 @@ function ContatoPage() {
   return (
     <>
       <PageHero
+        image={fotoEscritorio}
+        imageAlt="Interior do escritório de advocacia"
         eyebrow="Contato"
         title={
           <>

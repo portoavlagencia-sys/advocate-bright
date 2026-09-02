@@ -13,8 +13,8 @@ export function PageHero({
   title: ReactNode;
   lead?: string;
   children?: ReactNode;
-  image?: string;
-  imageAlt?: string;
+  image?: string | undefined;
+  imageAlt?: string | undefined;
 }) {
   return (
     <section className="relative border-b border-border bg-background">

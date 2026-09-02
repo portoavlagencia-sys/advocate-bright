@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import heroImg from "@/assets/hero-escritorio.jpg";
 import { Reveal } from "@/components/Reveal";
+import { HeroImage } from "@/components/HeroImage";
 import { CTASection } from "@/components/CTASection";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
 import { posts } from "@/lib/blog";

@@ -70,29 +70,51 @@ export function Header() {
               className={`${linkBase} flex items-center gap-1.5`}
             >
               Áreas de Atuação
-              <ChevronDown className="size-3.5" aria-hidden />
+              <ChevronDown
+                className={`size-3.5 transition-transform duration-300 ${
+                  areasOpen ? "rotate-180" : ""
+                }`}
+                aria-hidden
+              />
             </Link>
-            {areasOpen && (
-              <div className="absolute left-1/2 top-full w-80 -translate-x-1/2 border border-border bg-surface p-2 shadow-2xl">
-                {areas.map((area) => (
-                  <Link
-                    key={area.slug}
-                    to="/areas-de-atuacao/$slug"
-                    params={{ slug: area.slug }}
-                    className="block border-l-2 border-transparent px-4 py-3 text-sm text-foreground/80 transition-colors hover:border-green-bright hover:bg-secondary hover:text-foreground"
-                  >
-                    <span className="mr-2 text-xs text-green-bright">{area.number}</span>
-                    {area.title}
-                  </Link>
-                ))}
-                <Link
-                  to="/brasileiros-no-exterior"
-                  className="mt-1 block border-t border-border px-4 py-3 text-sm text-green-bright transition-colors hover:bg-secondary"
+            <AnimatePresence>
+              {areasOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -6, filter: "blur(4px)" }}
+                  transition={{ duration: 0.32, ease }}
+                  className="absolute left-1/2 top-full w-80 -translate-x-1/2 border border-border bg-surface p-2 shadow-2xl"
                 >
-                  Brasileiros no Exterior
-                </Link>
-              </div>
-            )}
+                  {areas.map((area, i) => (
+                    <motion.div
+                      key={area.slug}
+                      initial={{ opacity: 0, x: -6 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.35, delay: 0.04 * i, ease }}
+                    >
+                      <Link
+                        to="/areas-de-atuacao/$slug"
+                        params={{ slug: area.slug }}
+                        className="block border-l-2 border-transparent px-4 py-3 text-sm text-foreground/80 transition-all duration-300 hover:border-green-bright hover:bg-secondary hover:pl-6 hover:text-foreground"
+                      >
+                        <span className="mr-2 text-xs text-green-bright">
+                          {area.number}
+                        </span>
+                        {area.title}
+                      </Link>
+                    </motion.div>
+                  ))}
+                  <Link
+                    to="/brasileiros-no-exterior"
+                    className="mt-1 block border-t border-border px-4 py-3 text-sm text-green-bright transition-all duration-300 hover:bg-secondary hover:pl-6"
+                  >
+                    Brasileiros no Exterior
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
           </div>
           <Link to="/escritorio" className={linkBase}>
             Escritório

@@ -201,38 +201,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ESCRITÓRIO */}
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-[84rem] gap-14 px-6 py-24 lg:grid-cols-2 lg:px-10 lg:py-32">
-          <Reveal>
-            <span className="eyebrow text-green-bright">Quem conduz</span>
-            <h2 className="mt-8 text-3xl font-light leading-[1.12] tracking-tight sm:text-4xl">
-              Um escritório pequeno por escolha, para que nenhum caso vire número.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
-              <p>
-                A advocacia do escritório parte de uma premissa simples: o cliente precisa
-                entender o próprio processo. Cada etapa é explicada em linguagem clara,
-                com prazos reais e cenários possíveis — inclusive os desfavoráveis.
-              </p>
-              <p>
-                O atendimento é conduzido diretamente pelo advogado responsável, por
-                WhatsApp, videochamada ou presencialmente, conforme a necessidade de cada
-                cliente.
-              </p>
-              <Link
-                to="/escritorio"
-                className="inline-flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] text-green-bright hover:underline"
-              >
-                Conhecer o escritório
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* QUEM CONDUZ */}
+      <SobreAdvogado />
 
       {/* BLOG */}
       <section className="border-b border-border">

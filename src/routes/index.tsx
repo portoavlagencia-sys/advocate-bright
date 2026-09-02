@@ -5,6 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
 import { posts } from "@/lib/blog";
+import { SobreAdvogado } from "@/components/SobreAdvogado";
+import { FAQ } from "@/components/FAQ";
+import { homeFaq } from "@/lib/area-content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,21 +71,26 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-6 pb-28 pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <Reveal>
-            <span className="eyebrow text-green-bright">Advocacia · Brasil e exterior</span>
+            <span className="eyebrow text-green-bright">
+              Advocacia em Goiânia · Brasil e exterior
+            </span>
             <span className="rule-green mt-5" />
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="mt-10 max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]">
-              Direito é técnica.
+              Advogado em Goiânia para
               <br />
-              <span className="font-medium">Confiança é conduta.</span>
+              <span className="font-medium">
+                trabalho, imóveis, herança e família.
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-10 max-w-xl text-lg font-light leading-relaxed text-muted-foreground">
-              Atuação em Direito Trabalhista, Regularização de Imóveis, Sucessões e
-              Família — com acompanhamento direto do advogado responsável, do primeiro
-              contato à decisão final.
+            <p className="mt-10 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
+              Rescisão indireta, verbas não pagas, usucapião, inventário, divórcio e
+              pensão alimentícia. O escritório analisa documentos, prazos e chance real de
+              êxito antes de propor qualquer medida — e o advogado responsável acompanha o
+              caso do primeiro contato à decisão final, presencialmente ou 100% online.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -103,6 +111,15 @@ function Home() {
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+              <li>Atendimento presencial e online</li>
+              <li className="text-green-bright">·</li>
+              <li>Resposta no mesmo dia útil</li>
+              <li className="text-green-bright">·</li>
+              <li>Atuação em todo o Brasil</li>
+            </ul>
           </Reveal>
         </div>
       </section>

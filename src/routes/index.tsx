@@ -263,6 +263,12 @@ function Home() {
         </div>
       </section>
 
+      <FAQ
+        items={homeFaq}
+        eyebrow="Perguntas frequentes"
+        title="O que as pessoas perguntam antes de contratar um advogado"
+      />
+
       <CTASection />
     </>
   );

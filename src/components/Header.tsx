@@ -31,14 +31,20 @@ export function Header() {
           : "border-border/60"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-[84rem] items-center justify-between px-6 lg:px-10">
-        <Link to="/" className="flex items-center gap-3" aria-label={site.name}>
+      <div
+        className={`mx-auto flex max-w-[84rem] items-center justify-between px-6 transition-[height] duration-500 lg:px-10 ${
+          scrolled ? "h-16" : "h-20"
+        }`}
+      >
+        <Link to="/" className="group flex items-center gap-3" aria-label={site.name}>
           <img
             src={logo.url}
             alt={`${site.name} — logotipo`}
             width={160}
             height={160}
-            className="h-11 w-11 object-contain brightness-0 invert [.light_&]:invert-0"
+            className={`object-contain brightness-0 invert transition-[height,width,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 ${
+              scrolled ? "h-9 w-9" : "h-11 w-11"
+            }`}
           />
           <span className="hidden leading-tight sm:block">
             <span className="block text-[0.9rem] font-semibold tracking-[0.14em] text-foreground">

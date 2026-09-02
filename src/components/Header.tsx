@@ -148,70 +148,101 @@ export function Header() {
         </div>
       </div>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden">
-          <div className="flex h-20 items-center justify-between px-6">
-            <span className="text-[0.6rem] tracking-[0.34em] text-green-bright">
-              ADVOCACIA
-            </span>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Fechar menu">
-              <X className="size-6" />
-            </button>
-          </div>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 pb-12">
-            {[
-              { to: "/", label: "Home" },
-              { to: "/areas-de-atuacao", label: "Áreas de Atuação" },
-            ].map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.5, ease }}
+            className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden"
+          >
+            <div className="flex h-20 items-center justify-between px-6">
+              <span className="text-[0.6rem] tracking-[0.34em] text-green-bright">
+                ADVOCACIA
+              </span>
+              <button
+                type="button"
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-5 text-2xl font-light"
+                aria-label="Fechar menu"
+                className="transition-transform duration-300 hover:rotate-90"
               >
-                {item.label}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-3 border-b border-border py-5 pl-4">
-              {areas.map((area) => (
-                <Link
-                  key={area.slug}
-                  to="/areas-de-atuacao/$slug"
-                  params={{ slug: area.slug }}
-                  onClick={() => setOpen(false)}
-                  className="text-sm text-foreground/70"
-                >
-                  <span className="mr-2 text-green-bright">{area.number}</span>
-                  {area.title}
-                </Link>
-              ))}
+                <X className="size-6" />
+              </button>
             </div>
-            {[
-              { to: "/brasileiros-no-exterior", label: "Brasileiros no Exterior" },
-              { to: "/escritorio", label: "Escritório" },
-              { to: "/blog", label: "Blog" },
-              { to: "/contato", label: "Contato" },
-            ].map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border py-5 text-2xl font-light"
+            <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 pb-12">
+              {[
+                { to: "/", label: "Home" },
+                { to: "/areas-de-atuacao", label: "Áreas de Atuação" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.to}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.06 + i * 0.05, ease }}
+                >
+                  <Link
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="block border-b border-border py-5 text-2xl font-light"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <div className="flex flex-col gap-3 border-b border-border py-5 pl-4">
+                {areas.map((area, i) => (
+                  <motion.div
+                    key={area.slug}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.45, delay: 0.16 + i * 0.04, ease }}
+                  >
+                    <Link
+                      to="/areas-de-atuacao/$slug"
+                      params={{ slug: area.slug }}
+                      onClick={() => setOpen(false)}
+                      className="text-sm text-foreground/70"
+                    >
+                      <span className="mr-2 text-green-bright">{area.number}</span>
+                      {area.title}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+              {[
+                { to: "/brasileiros-no-exterior", label: "Brasileiros no Exterior" },
+                { to: "/escritorio", label: "Escritório" },
+                { to: "/blog", label: "Blog" },
+                { to: "/contato", label: "Contato" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.to}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.05, ease }}
+                >
+                  <Link
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="block border-b border-border py-5 text-2xl font-light"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 bg-primary px-6 py-4 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground"
               >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 bg-primary px-6 py-4 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground"
-            >
-              Falar no WhatsApp
-            </a>
-          </nav>
-        </div>
-      )}
+                Falar no WhatsApp
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

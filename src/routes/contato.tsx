@@ -53,7 +53,7 @@ function ContatoPage() {
       />
 
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-[84rem] gap-14 px-6 py-20 lg:grid-cols-[1fr_1fr] lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-[84rem] gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1fr] lg:gap-14 lg:px-10 lg:py-28">
           <Reveal>
             <div className="space-y-px border border-border bg-border">
               <a

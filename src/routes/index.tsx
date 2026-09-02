@@ -161,7 +161,7 @@ function Home() {
                   <Link
                     to="/areas-de-atuacao/$slug"
                     params={{ slug: area.slug }}
-                    className="group flex items-start gap-6 py-8 transition-colors hover:bg-surface/60"
+                    className="group flex items-start gap-6 px-2 py-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-x-1.5 hover:bg-surface/60 hover:px-4"
                   >
                     <span className="pt-1 text-xs tracking-[0.2em] text-green-bright">
                       {area.number}
@@ -245,7 +245,7 @@ function Home() {
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
-                  className="flex h-full flex-col p-8 transition-colors hover:bg-surface"
+                  className="hover-lift flex h-full flex-col p-8 hover:bg-surface"
                 >
                   <span className="eyebrow text-muted-foreground">{post.category}</span>
                   <h3 className="mt-5 text-lg font-medium leading-snug">{post.title}</h3>

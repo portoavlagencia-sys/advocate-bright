@@ -129,7 +129,7 @@ export function Header() {
             href={whatsappLink()}
             target="_blank"
             rel="noreferrer"
-            className="bg-primary px-5 py-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-green-bright"
+            className="relative overflow-hidden bg-primary px-5 py-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary-foreground transition-all duration-500 hover:-translate-y-0.5 hover:bg-green-bright hover:shadow-[0_16px_36px_-18px_color-mix(in_oklab,var(--color-green-bright)_80%,transparent)]"
           >
             Falar no WhatsApp
           </a>

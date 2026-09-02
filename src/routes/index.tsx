@@ -61,12 +61,10 @@ function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <HeroImage
           src={heroImg}
           alt="Sala de reuniões do escritório ao entardecer"
-          width={1600}
-          height={1200}
-          className="absolute inset-0 size-full object-cover opacity-35 [.light_&]:opacity-20"
+          className="absolute inset-0 size-full scale-105 object-cover opacity-35 [.light_&]:opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-6 pb-28 pt-24 lg:px-10 lg:pb-40 lg:pt-36">

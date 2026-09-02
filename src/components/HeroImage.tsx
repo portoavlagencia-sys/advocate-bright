@@ -28,9 +28,9 @@ export function HeroImage({
         height={1200}
         className={className}
         style={reduced ? undefined : { y, scale }}
-        initial={{ opacity: 0, scale: 1.06 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
       />
     </div>
   );

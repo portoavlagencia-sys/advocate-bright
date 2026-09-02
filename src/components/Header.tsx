@@ -1,19 +1,36 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import logo from "@/assets/logo-edmom-moraes.png.asset.json";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const linkBase =
-  "text-[0.8rem] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-foreground";
+  "link-underline text-[0.8rem] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-foreground";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-500 ${
+        scrolled
+          ? "border-border shadow-[0_18px_40px_-32px_rgba(0,0,0,0.9)]"
+          : "border-border/60"
+      }`}
+    >
       <div className="mx-auto flex h-20 max-w-[84rem] items-center justify-between px-6 lg:px-10">
         <Link to="/" className="flex items-center gap-3" aria-label={site.name}>
           <img

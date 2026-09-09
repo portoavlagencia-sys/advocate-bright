@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import logo from "@/assets/logo-edmom-moraes.png.asset.json";
+import { LogoMark } from "@/components/LogoMark";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -56,24 +56,12 @@ export function Header() {
           scrolled ? "h-16" : "h-20"
         }`}
       >
-        <Link to="/" className="group flex items-center gap-3" aria-label={site.name}>
-          <img
-            src={logo.url}
-            alt={`${site.name} — logotipo`}
-            width={160}
-            height={160}
-            className={`object-contain brightness-0 invert transition-[height,width,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 ${
-              scrolled ? "h-9 w-9" : "h-11 w-11"
+        <Link to="/" className="group flex items-center" aria-label={site.name}>
+          <LogoMark
+            className={`w-auto text-foreground transition-[height,transform] duration-500 group-hover:scale-105 ${
+              scrolled ? "h-9" : "h-11"
             }`}
           />
-          <span className="hidden leading-tight sm:block">
-            <span className="block text-[0.9rem] font-semibold tracking-[0.14em] text-foreground">
-              EDMOM MORAES
-            </span>
-            <span className="block text-[0.6rem] tracking-[0.34em] text-green-bright">
-              ADVOCACIA
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

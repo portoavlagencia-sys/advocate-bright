@@ -5,7 +5,8 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { site, whatsappLink } from "@/lib/site";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
-import interior from "@/assets/foto-escritorio-interior.webp";
+
+import heroEscritorio from "@/assets/hero-escritorio-em.webp";
 import arquivo from "@/assets/foto-arquivo-processos.webp";
 
 export const Route = createFileRoute("/escritorio")({
@@ -82,8 +83,8 @@ function EscritorioPage() {
           </>
         }
         lead="Escritório em Goiânia, com atuação em Direito Trabalhista, Regularização de Imóveis, Sucessões e Família, e atendimento remoto para clientes de outros Estados e do exterior."
-        image={interior}
-        imageAlt="Sala de reunião do escritório de advocacia"
+        bgImage={heroEscritorio}
+        bgAlt="Recepção do escritório Edmom Moraes Advocacia"
       />
 
       <section className="border-b border-border">

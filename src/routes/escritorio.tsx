@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { site, whatsappLink } from "@/lib/site";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
-import interior from "@/assets/foto-escritorio-interior.webp";
+
 import heroEscritorio from "@/assets/hero-escritorio-em.webp";
 import arquivo from "@/assets/foto-arquivo-processos.webp";
 

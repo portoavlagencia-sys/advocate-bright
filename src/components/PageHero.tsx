@@ -8,6 +8,8 @@ export function PageHero({
   children,
   image,
   imageAlt,
+  bgImage,
+  bgAlt,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -15,11 +17,26 @@ export function PageHero({
   children?: ReactNode;
   image?: string | undefined;
   imageAlt?: string | undefined;
+  bgImage?: string | undefined;
+  bgAlt?: string | undefined;
 }) {
   return (
-    <section className="relative border-b border-border bg-background">
+    <section className="relative overflow-hidden border-b border-border bg-background">
+      {bgImage && (
+        <>
+          <img
+            src={bgImage}
+            alt={bgAlt ?? ""}
+            className="absolute inset-0 h-full w-full object-cover opacity-45 [.light_&]:opacity-20"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30 [.light_&]:from-background [.light_&]:via-background/90"
+          />
+        </>
+      )}
       <div
-        className={`mx-auto max-w-[84rem] gap-12 px-5 pb-20 pt-24 sm:px-6 lg:px-10 lg:pb-28 lg:pt-32 ${
+        className={`relative mx-auto max-w-[84rem] gap-12 px-5 pb-20 pt-24 sm:px-6 lg:px-10 lg:pb-28 lg:pt-32 ${
           image ? "grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center" : ""
         }`}
       >

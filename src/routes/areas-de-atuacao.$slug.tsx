@@ -7,27 +7,27 @@ import { FAQ } from "@/components/FAQ";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { areaContent, areaAbout } from "@/lib/area-content";
 import { QuemSomosArea } from "@/components/QuemSomosArea";
-import fotoTrabalhista from "@/assets/foto-obra-trabalhador.webp";
-import fotoImoveis from "@/assets/foto-chaves-imovel.webp";
-import fotoSucessorio from "@/assets/foto-assinatura-documento.webp";
-import fotoFamilia from "@/assets/foto-familia-maos.webp";
+import fotoTrabalhista from "@/assets/hero-trabalhista.webp";
+import fotoImoveis from "@/assets/hero-imoveis.webp";
+import fotoSucessorio from "@/assets/hero-sucessorio.webp";
+import fotoFamilia from "@/assets/hero-familia.webp";
 
 const areaPhotos: Record<string, { src: string; alt: string }> = {
   "direito-trabalhista": {
     src: fotoTrabalhista,
-    alt: "Trabalhador em canteiro de obras",
+    alt: "Carteira de trabalho sobre a mesa do escritório",
   },
   "regularizacao-de-imoveis": {
     src: fotoImoveis,
-    alt: "Chaves sobre a mesa após a compra de um imóvel",
+    alt: "Chaves de imóvel sobre pasta do escritório",
   },
   "direito-sucessorio": {
     src: fotoSucessorio,
-    alt: "Assinatura de documento em cartório",
+    alt: "Plano de partilha sobre a mesa do escritório",
   },
   "direito-de-familia": {
     src: fotoFamilia,
-    alt: "Mãos de adulto e criança unidas",
+    alt: "Família de mãos dadas ao entardecer",
   },
 };
 
@@ -84,8 +84,8 @@ function AreaPage() {
         eyebrow={`Área ${area.number}`}
         title={area.title}
         lead={content.heroLead}
-        image={areaPhotos[area.slug]?.src}
-        imageAlt={areaPhotos[area.slug]?.alt}
+        bgImage={areaPhotos[area.slug]?.src}
+        bgAlt={areaPhotos[area.slug]?.alt}
       >
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <a

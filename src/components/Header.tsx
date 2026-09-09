@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { LogoMark } from "@/components/LogoMark";
+
 import { areas, site, whatsappLink } from "@/lib/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -57,9 +57,11 @@ export function Header() {
         }`}
       >
         <Link to="/" className="group flex items-center" aria-label={site.name}>
-          <LogoMark
-            className={`w-auto text-foreground transition-[height,transform] duration-500 group-hover:scale-105 ${
-              scrolled ? "h-9" : "h-11"
+          <img
+            src="/logo-edmom-moraes.svg"
+            alt={`${site.name} — logotipo`}
+            className={`w-auto brightness-0 invert transition-[height,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 ${
+              scrolled ? "h-8" : "h-10"
             }`}
           />
         </Link>

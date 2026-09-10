@@ -26,11 +26,17 @@ jobs:
       - run: bun run build
       - name: Prepare Pages artifact
         run: |
-          echo "--- dist ---"; ls dist 2>/dev/null | head -20 || echo "no dist"
-          echo "--- .output/public ---"; ls .output/public 2>/dev/null | head -20 || echo "no .output/public"
-          if [ -d .output/public ]; then OUT=.output/public; else OUT=dist; fi
+          echo "--- tree ---"
+          ls -la | head -30
+          for d in .output/public dist dist/client dist/public; do echo "--- $d ---"; ls "$d" 2>/dev/null | head -30 || echo "missing $d"; done
+          OUT=""
+          for d in .output/public dist/client dist dist/public; do
+            if [ -f "$d/index.html" ]; then OUT="$d"; break; fi
+          done
+          if [ -z "$OUT" ]; then echo "ERRO: nenhum index.html encontrado"; find .output dist -maxdepth 3 2>/dev/null | head -50; exit 1; fi
+          echo "Usando OUT=$OUT"
           echo "OUT=$OUT" >> $GITHUB_ENV
-          if [ -f "$OUT/index.html" ] && [ ! -f "$OUT/404.html" ]; then cp "$OUT/index.html" "$OUT/404.html"; fi
+          if [ ! -f "$OUT/404.html" ]; then cp "$OUT/index.html" "$OUT/404.html"; fi
           touch "$OUT/.nojekyll"
       - uses: actions/upload-pages-artifact@v3
         with:

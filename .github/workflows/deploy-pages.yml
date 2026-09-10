@@ -17,28 +17,24 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NITRO_PRESET: github-pages
-      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-      VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
-      SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile
-      - run: bunx vite build --base=/advocate-bright/
-      - name: SPA fallback for Pages
+      - run: bun run build
+      - name: Prepare Pages artifact
         run: |
-          if [ -f .output/public/index.html ] && [ ! -f .output/public/404.html ]; then cp .output/public/index.html .output/public/404.html; fi
-          touch .output/public/.nojekyll
-          ls .output/public | head -20
+          echo "--- dist ---"; ls dist 2>/dev/null | head -20 || echo "no dist"
+          echo "--- .output/public ---"; ls .output/public 2>/dev/null | head -20 || echo "no .output/public"
+          if [ -d .output/public ]; then OUT=.output/public; else OUT=dist; fi
+          echo "OUT=$OUT" >> $GITHUB_ENV
+          if [ -f "$OUT/index.html" ] && [ ! -f "$OUT/404.html" ]; then cp "$OUT/index.html" "$OUT/404.html"; fi
+          touch "$OUT/.nojekyll"
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: ${{ env.OUT }}
 
   deploy:
     needs: build

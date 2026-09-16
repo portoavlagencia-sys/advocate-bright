@@ -92,6 +92,23 @@ function Home() {
               advogado lê, diz o que dá para fazer e em quanto tempo. Atendimento em
               Goiânia ou por vídeo, de onde você estiver.
             </p>
+            <h2 className="mt-10 max-w-2xl text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+              Advocacia ágil e descomplicada para resolver o que importa:
+            </h2>
+            <ul className="mt-5 max-w-2xl space-y-2 text-base font-light text-foreground/90">
+              <li className="flex items-center gap-3">
+                <span className="text-green-bright">+</span> Direito do trabalho
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-green-bright">+</span> Regularização de imóveis
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-green-bright">+</span> Direito sucessório
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-green-bright">+</span> Direito de família
+              </li>
+            </ul>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">

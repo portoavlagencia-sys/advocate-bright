@@ -3,8 +3,8 @@ import { site, whatsappLink } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
 export function CTASection({
-  title = "Há quem espere o prazo correr. Há quem se antecipe.",
-  text = "Envie o resumo do seu caso. A primeira conversa serve para entender a situação e dizer, com honestidade, se há caminho jurídico.",
+  title = "Agende uma consulta para avaliar o seu caso",
+  text = "Envie o resumo do seu caso. Apresentamos um diagnóstico transparente sobre as possibilidades e estratégias para a sua demanda.",
 }: {
   title?: string;
   text?: string;

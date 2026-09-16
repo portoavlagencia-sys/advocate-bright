@@ -29,7 +29,7 @@ export const areas: Area[] = [
     slug: "direito-trabalhista",
     number: "01",
     title: "Direito Trabalhista",
-    short: "Relações de trabalho, verbas devidas e reparação de abusos.",
+    short: "Garantia e cobrança de verbas rescisórias e direitos trabalhistas não pagos.",
     description:
       "Atuação para trabalhadores que tiveram direitos descumpridos durante o contrato ou na saída da empresa. Análise do caso, reunião de provas e condução da ação com acompanhamento próximo em cada etapa.",
     services: [
@@ -71,7 +71,7 @@ export const areas: Area[] = [
     slug: "regularizacao-de-imoveis",
     number: "02",
     title: "Regularização de Imóveis",
-    short: "Segurança jurídica na aquisição, na posse e na titulação do bem.",
+    short: "Soluções para escrituras pendentes, contratos, regularização cartorária e defesas em leilões.",
     description:
       "Do estudo do negócio à regularização da matrícula. Análise documental prévia, condução das medidas judiciais e extrajudiciais necessárias e acompanhamento até o registro.",
     services: [
@@ -101,7 +101,7 @@ export const areas: Area[] = [
     slug: "direito-sucessorio",
     number: "03",
     title: "Direito Sucessório",
-    short: "Transmissão de patrimônio conduzida com técnica e serenidade.",
+    short: "Destravamento de inventários parados e partilha de bens.",
     description:
       "Condução de inventários e do planejamento da sucessão, com atenção ao custo tributário, ao tempo do procedimento e ao equilíbrio entre os envolvidos.",
     services: [
@@ -127,7 +127,7 @@ export const areas: Area[] = [
     slug: "direito-de-familia",
     number: "04",
     title: "Direito de Família",
-    short: "Decisões delicadas conduzidas com discrição e firmeza técnica.",
+    short: "Execução e revisão de pensão alimentícia, guarda e divórcio.",
     description:
       "Atuação em questões familiares com foco em acordos viáveis quando há espaço para diálogo e em atuação firme quando o caso exige decisão judicial.",
     services: [

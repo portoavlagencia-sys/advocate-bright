@@ -52,7 +52,7 @@ function ContatoPage() {
             <span className="font-medium">O resto é análise.</span>
           </>
         }
-        lead="O primeiro contato serve para entender a situação e indicar, com honestidade, se existe caminho jurídico e qual seria."
+        lead="O primeiro contato serve para entender a situação. Apresentamos um diagnóstico transparente sobre as possibilidades e estratégias para a sua demanda."
       />
 
       <section className="border-b border-border">

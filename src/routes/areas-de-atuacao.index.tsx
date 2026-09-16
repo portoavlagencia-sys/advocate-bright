@@ -32,11 +32,10 @@ function AreasIndex() {
         eyebrow="Áreas de Atuação"
         title={
           <>
-            Quatro áreas. Um mesmo padrão de{" "}
-            <span className="font-medium">análise antes da ação.</span>
+            Soluções Jurídicas <span className="font-medium">Especializadas</span>
           </>
         }
-        lead="Antes de propor qualquer medida, o caso é estudado: documentos, prazos, chance de êxito e custo. Só então o caminho é apresentado."
+        lead="Atuação estratégica baseada na análise rigorosa de documentos, prazos, custos e viabilidade jurídica para cada caso."
       />
 
       <section>

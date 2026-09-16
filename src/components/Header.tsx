@@ -56,14 +56,22 @@ export function Header() {
           scrolled ? "h-16" : "h-20"
         }`}
       >
-        <Link to="/" className="group flex items-center" aria-label={site.name}>
+        <Link to="/" className="group flex items-center gap-3" aria-label={site.name}>
           <img
             src="/logo-edmom-moraes.svg"
             alt={`${site.name} — logotipo`}
-            className={`w-auto brightness-0 invert transition-[height,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 ${
-              scrolled ? "h-8" : "h-10"
+            className={`w-auto transition-[height,transform] duration-500 group-hover:scale-105 ${
+              scrolled ? "h-11" : "h-14"
             }`}
           />
+          <span className="leading-tight">
+            <span className="block text-base font-semibold tracking-wide text-foreground sm:text-lg">
+              Edmom Moraes
+            </span>
+            <span className="block text-[0.6rem] uppercase tracking-[0.3em] text-green-bright">
+              Advocacia
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

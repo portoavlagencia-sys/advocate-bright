@@ -117,6 +117,27 @@ export const posts: Post[] = [
       "Uma análise prévia custa uma fração do valor em jogo. Me manda o edital e a matrícula antes do leilão — não depois.",
     ],
   },
+  {
+    slug: "pensao-atrasada-o-que-fazer",
+    title: "Pensão não caiu: o que fazer quando o pagamento atrasa",
+    excerpt:
+      "Três meses de atraso podem gerar prisão civil. Penhora, bloqueio e protesto para o resto. O roteiro de cobrança sem transformar o filho em moeda de troca.",
+    date: "2026-10-06",
+    dateLabel: "6 de outubro de 2026",
+    category: "Direito de Família",
+    readingTime: "5 min de leitura",
+    author: AUTHOR,
+    paragraphs: [
+      "Quando a pensão atrasa, a primeira reação costuma ser brigar pelo WhatsApp. Raramente resolve. Existe um roteiro técnico que cobra sem expor a criança — e funciona melhor quando começa cedo, não depois de um ano de atraso acumulado.",
+      { heading: "Os três últimos meses têm rito próprio" },
+      "O débito dos três meses mais recentes admite cobrança com pedido de prisão civil. É o meio mais duro e, por isso mesmo, o que mais faz acordo sair. Passou disso, o restante vai por penhora: conta bloqueada, bens, protesto da dívida, nome nos cadastros de inadimplentes.",
+      { heading: "Guarda os comprovantes, não as discussões" },
+      "O que o juiz precisa ver: decisão que fixou a pensão, extratos mostrando o que entrou e o que faltou, despesas do filho — escola, saúde, moradia. Print de briga não prova nada; planilha simples prova tudo.",
+      { heading: "E se quem paga perdeu renda de verdade?" },
+      "Aí o caminho é revisão, não calote silencioso. Desemprego, doença, outro filho: o valor pode ser revisto para a realidade atual, para cima ou para baixo. Mas enquanto não há nova decisão, vale a antiga — e o atraso conta.",
+      "Se a pensão aí de casa parou de cair, me chama com a decisão e os comprovantes. Eu te digo qual rito cabe e em quanto tempo dá para ver resultado.",
+    ],
+  },
 ];
 
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug);

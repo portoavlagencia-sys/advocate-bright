@@ -16,6 +16,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BrasileirosNoExteriorRouteImport } from './routes/brasileiros-no-exterior'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as EscritorioRouteImport } from './routes/escritorio'
+import { Route as AdvogadoTrabalhistaGoianiaRouteImport } from './routes/advogado-trabalhista-goiania'
 import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -56,6 +57,12 @@ const EscritorioRoute = EscritorioRouteImport.update({
   path: '/escritorio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvogadoTrabalhistaGoianiaRoute =
+  AdvogadoTrabalhistaGoianiaRouteImport.update({
+    id: '/advogado-trabalhista-goiania',
+    path: '/advogado-trabalhista-goiania',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -96,6 +104,7 @@ export interface FileRoutesByTo {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
@@ -110,6 +119,7 @@ export interface FileRoutesById {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -163,6 +176,7 @@ export interface RootRouteChildren {
   BrasileirosNoExteriorRoute: typeof BrasileirosNoExteriorRoute
   ContatoRoute: typeof ContatoRoute
   EscritorioRoute: typeof EscritorioRoute
+  AdvogadoTrabalhistaGoianiaRoute: typeof AdvogadoTrabalhistaGoianiaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -214,6 +228,13 @@ declare module '@tanstack/react-router' {
       path: '/escritorio'
       fullPath: '/escritorio'
       preLoaderRoute: typeof EscritorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advogado-trabalhista-goiania': {
+      id: '/advogado-trabalhista-goiania'
+      path: '/advogado-trabalhista-goiania'
+      fullPath: '/advogado-trabalhista-goiania'
+      preLoaderRoute: typeof AdvogadoTrabalhistaGoianiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-de-atuacao/': {
@@ -281,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrasileirosNoExteriorRoute: BrasileirosNoExteriorRoute,
   ContatoRoute: ContatoRoute,
   EscritorioRoute: EscritorioRoute,
+  AdvogadoTrabalhistaGoianiaRoute: AdvogadoTrabalhistaGoianiaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

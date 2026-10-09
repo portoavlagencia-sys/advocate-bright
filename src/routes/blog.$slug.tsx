@@ -55,6 +55,9 @@ function PostPage() {
             <h1 className="mt-6 text-3xl font-light leading-[1.14] tracking-tight sm:text-4xl lg:text-5xl">
               {post.title}
             </h1>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Por {post.author} — advogado responsável pelo escritório, Goiânia/GO
+            </p>
             <span className="rule-green mt-10" />
           </Reveal>
 
@@ -73,10 +76,21 @@ function PostPage() {
           </div>
 
           <p className="mt-16 border-l-2 border-green-bright bg-surface p-6 text-sm leading-relaxed text-muted-foreground">
-            Este conteúdo é informativo e não substitui a análise individual do caso.
-            Cada situação tem particularidades que podem alterar completamente o
-            resultado.
+            Este texto é informativo e não substitui a análise do seu caso.
+            Se a sua situação parece com a descrita aqui, me manda os documentos
+            no WhatsApp — eu leio e te digo o que dá para fazer, sem compromisso.
           </p>
+
+          <a
+            href={`https://wa.me/5562982060993?text=${encodeURIComponent(
+              `Olá, li o artigo "${post.title}" e meu caso parece parecido. Posso te mandar os documentos?`,
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
+          >
+            Meu caso parece com esse — pedir análise
+          </a>
         </div>
       </article>
 

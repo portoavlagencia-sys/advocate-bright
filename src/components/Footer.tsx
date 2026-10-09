@@ -66,6 +66,27 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <span className="eyebrow mt-8 block text-green-bright">
+              Atendimento local
+            </span>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  to="/advogado-trabalhista-goiania"
+                  className="text-sm text-foreground/75 transition-colors hover:text-green-bright"
+                >
+                  Advogado Trabalhista em Goiânia
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/brasileiros-no-exterior"
+                  className="text-sm text-foreground/75 transition-colors hover:text-green-bright"
+                >
+                  Brasileiros no Exterior
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>

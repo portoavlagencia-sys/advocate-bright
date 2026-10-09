@@ -62,6 +62,9 @@ function BlogIndex() {
                     <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                       {post.excerpt}
                     </p>
+                    <p className="mt-3 text-xs text-muted-foreground">
+                      Por {post.author}
+                    </p>
                   </span>
                   <ArrowUpRight className="size-5 text-green-bright opacity-0 transition-opacity group-hover:opacity-100" />
                 </Link>

@@ -359,28 +359,28 @@ export const areaContent: Record<string, AreaContent> = {
 
 export const homeFaq: FaqItem[] = [
   {
-    q: "O escritório atende em quais cidades?",
-    a: "A base é em Goiânia, Goiás, com atuação em todo o território nacional. Processos eletrônicos e audiências por videoconferência permitem conduzir casos em qualquer Estado, e o atendimento remoto alcança também brasileiros que moram no exterior.",
+    q: "Vocês atendem onde? Só em Goiânia?",
+    a: "O escritório fica em Goiânia, mas o processo eletrônico permite atuar no Brasil todo. Audiência por vídeo virou rotina — e brasileiro que mora fora resolve quase tudo por procuração, sem viajar.",
   },
   {
-    q: "A primeira conversa tem custo?",
-    a: "O contato inicial pelo WhatsApp serve para entender o caso e verificar se ele é atendido pelo escritório. Havendo necessidade de análise documental ou parecer, os honorários são informados antes por escrito, sem surpresa.",
+    q: "A primeira conversa é paga?",
+    a: "O primeiro contato no WhatsApp é para entender se o caso é da nossa área. Se precisar de análise de documento ou parecer, eu informo o valor por escrito antes. Sem surpresa no meio do caminho.",
   },
   {
-    q: "Como funcionam os honorários?",
-    a: "Dependem da área, da complexidade e do tempo estimado. Podem ser fixos, por etapa ou combinados com percentual sobre o êxito, sempre dentro da tabela da OAB e formalizados em contrato antes do início do trabalho.",
+    q: "Como cobram os honorários?",
+    a: "Depende do caso: fixo, por etapa ou com parte no êxito. Sempre dentro da tabela da OAB-GO e com contrato assinado antes de começar. Você sabe quanto, quando e pelo quê.",
   },
   {
-    q: "Vocês garantem que eu vou ganhar o processo?",
-    a: "Não. Nenhum advogado pode garantir resultado, e o Código de Ética da OAB proíbe esse tipo de promessa. O que o escritório entrega é análise honesta de chance de êxito, incluindo os cenários desfavoráveis.",
+    q: "Vocês garantem que vou ganhar?",
+    a: "Não — e desconfie de quem garante. O que eu entrego é conta e cenário real: o que é forte, o que é fraco, quanto tempo leva em média e o que pode dar errado. Decisão com número, não com promessa.",
   },
   {
-    q: "Quem cuida do meu caso no dia a dia?",
-    a: "O advogado responsável acompanha diretamente. Você fala com quem conhece o processo, e não com um atendente que precisa consultar alguém para responder.",
+    q: "Quem vai cuidar do meu caso?",
+    a: "Eu, Edmom. Quem lê seus documentos no WhatsApp é quem assina a petição e vai à audiência. Nada de ser repassado para estagiário sem você saber.",
   },
   {
-    q: "Moro fora do Brasil. Preciso viajar para resolver?",
-    a: "Na maioria dos casos, não. Com procuração assinada em consulado ou com apostila de Haia, inventários, divórcios, vendas de imóvel e ações trabalhistas podem ser conduzidos integralmente à distância.",
+    q: "Moro fora do Brasil. Preciso vir resolver?",
+    a: "Na maioria das vezes, não. Com procuração do consulado ou com apostila de Haia dá para tocar inventário, divórcio, venda de imóvel e ação trabalhista à distância, por vídeo.",
   },
 ];
 

@@ -1,25 +1,39 @@
+import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin, MessageCircle, Calculator } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
 import { Reveal } from "./Reveal";
+import { Spotlight } from "./motion";
 import { site } from "@/lib/site";
 
 const marcas = [
   {
+    icon: MapPin,
     title: "Casos em todo o Brasil, base em Goiânia",
     text: "Processo eletrônico e audiência por vídeo permitem atuar em outros Estados sem que o cliente precise se deslocar.",
   },
   {
+    icon: MessageCircle,
     title: "Você fala com o advogado",
     text: "Quem lê os documentos é quem responde no WhatsApp. Nada de recado repassado por terceiros.",
   },
   {
+    icon: Calculator,
     title: "Primeiro a conta, depois a petição",
     text: "Antes de entrar com a ação, o cliente sabe o que pode receber, quanto tempo costuma levar e onde o caso pode fraquejar.",
   },
 ];
 
 export function SobreAdvogado() {
+  const listRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 0.75", "end 0.55"],
+  });
+  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 24 });
+
   return (
     <section className="border-b border-border">
       <div className="mx-auto grid max-w-[84rem] gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-10 lg:py-32">
@@ -76,22 +90,52 @@ export function SobreAdvogado() {
             </div>
           </Reveal>
 
-          <div className="mt-12 divide-y divide-border border-y border-border">
-            {marcas.map((item, i) => (
-              <Reveal key={item.title} delay={0.15 + i * 0.05}>
-                <div className="flex gap-5 py-7 sm:gap-6">
-                  <span className="pt-1 text-xs tracking-[0.2em] text-green-bright">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-base font-medium">{item.title}</h3>
-                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          {/* Timeline editorial com trilho de progresso */}
+          <div ref={listRef} className="relative mt-12 pl-8 sm:pl-10">
+            {/* trilho */}
+            <div aria-hidden className="absolute bottom-4 left-0 top-4 w-px bg-border">
+              {!reduced && (
+                <motion.span
+                  className="block h-full w-px origin-top bg-green-bright"
+                  style={{ scaleY: fill }}
+                />
+              )}
+            </div>
+            <div className="space-y-4">
+              {marcas.map((item, i) => (
+                <Reveal key={item.title} delay={0.12 + i * 0.06}>
+                  <Spotlight className="border border-border bg-background/60">
+                    <div className="group flex gap-5 p-6 transition-all duration-500 hover:border-green-bright/50 hover:bg-surface/70 sm:gap-6 sm:p-7">
+                      <span className="relative shrink-0">
+                        <span className="flex size-12 items-center justify-center border border-green-bright/40 text-green-bright transition-all duration-500 group-hover:bg-green-bright group-hover:text-[#06110b]">
+                          <item.icon className="size-5" aria-hidden />
+                        </span>
+                        <span
+                          aria-hidden
+                          className="absolute -left-8 top-1/2 size-2 -translate-y-1/2 rounded-full bg-border transition-colors duration-500 group-hover:bg-green-bright sm:-left-10"
+                        />
+                      </span>
+                      <span>
+                        <span className="flex flex-wrap items-baseline gap-x-4">
+                          <span
+                            aria-hidden
+                            className="ghost-number text-2xl font-extralight"
+                          >
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <h3 className="text-lg font-medium tracking-tight">
+                            {item.title}
+                          </h3>
+                        </span>
+                        <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                          {item.text}
+                        </p>
+                      </span>
+                    </div>
+                  </Spotlight>
+                </Reveal>
+              ))}
+            </div>
           </div>
           <Reveal delay={0.3}>
             <Link

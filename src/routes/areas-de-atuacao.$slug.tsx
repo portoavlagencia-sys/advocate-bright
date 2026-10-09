@@ -4,6 +4,8 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { FAQ } from "@/components/FAQ";
+import { Magnetic, Spotlight } from "@/components/motion";
+import { ReefButton } from "@/components/ui/reef-button";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { areaContent, areaAbout } from "@/lib/area-content";
 import { QuemSomosArea } from "@/components/QuemSomosArea";
@@ -88,14 +90,11 @@ function AreaPage() {
         bgAlt={areaPhotos[area.slug]?.alt}
       >
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-          <a
-            href={whatsappLink(content.whatsappMessage)}
-            target="_blank"
-            rel="noreferrer"
-            className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright sm:px-8"
-          >
-            Analisar meu caso
-          </a>
+          <Magnetic>
+            <ReefButton href={whatsappLink(content.whatsappMessage)}>
+              Analisar meu caso
+            </ReefButton>
+          </Magnetic>
           <Link
             to="/contato"
             className="group inline-flex items-center justify-center gap-2 border border-border px-7 py-4 sm:px-8 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
@@ -180,7 +179,8 @@ function AreaPage() {
           <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2">
             {area.services.map((service, i) => (
               <Reveal key={service.title} delay={i * 0.04} className="bg-background">
-                <div className="h-full p-7 sm:p-8 lg:p-10">
+                <Spotlight className="h-full">
+                <div className="h-full p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-8 lg:p-10">
                   <span className="text-xs tracking-[0.2em] text-green-bright">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -191,6 +191,7 @@ function AreaPage() {
                     {service.text}
                   </p>
                 </div>
+                </Spotlight>
               </Reveal>
             ))}
           </div>
@@ -241,14 +242,11 @@ function AreaPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={whatsappLink(content.whatsappMessage)}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-9 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
-              >
-                Enviar pelo WhatsApp
-              </a>
+              <div className="mt-9">
+                <ReefButton href={whatsappLink(content.whatsappMessage)} className="w-full">
+                  Enviar pelo WhatsApp
+                </ReefButton>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -280,14 +278,11 @@ function AreaPage() {
                   {content.ctaText}
                 </p>
               </div>
-              <a
-                href={whatsappLink(content.whatsappMessage)}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright sm:px-8"
-              >
-                Falar com o advogado
-              </a>
+              <Magnetic>
+                <ReefButton href={whatsappLink(content.whatsappMessage)}>
+                  Falar com o advogado
+                </ReefButton>
+              </Magnetic>
             </div>
           </Reveal>
         </div>

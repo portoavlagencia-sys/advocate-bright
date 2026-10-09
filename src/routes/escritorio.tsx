@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { Magnetic, Spotlight } from "@/components/motion";
+import Velaris from "@/components/ui/velaris";
+import { ReefButton } from "@/components/ui/reef-button";
 import { site, whatsappLink } from "@/lib/site";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
 
@@ -141,29 +143,29 @@ function EscritorioPage() {
               </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-2 bg-primary px-6 py-4 text-[0.7rem] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-green-bright"
-              >
-                Falar com o advogado
-                <ArrowUpRight className="size-4" />
-              </a>
+              <Magnetic className="mt-10 inline-block">
+                <ReefButton href={whatsappLink()}>
+                  Falar com o advogado
+                </ReefButton>
+              </Magnetic>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
+      <section className="relative overflow-hidden border-b border-border bg-surface">
+        <div className="absolute inset-0" aria-hidden>
+          <Velaris speed={0.9} />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <Reveal>
             <span className="eyebrow text-green-bright">Como trabalhamos</span>
           </Reveal>
           <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2">
             {values.map((value, i) => (
               <Reveal key={value.number} delay={i * 0.05} className="bg-surface">
-                <div className="h-full p-7 sm:p-8 lg:p-12">
+                <Spotlight className="h-full">
+                <div className="h-full p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-8 lg:p-12">
                   <span className="text-xs tracking-[0.2em] text-green-bright">
                     {value.number}
                   </span>
@@ -172,6 +174,7 @@ function EscritorioPage() {
                     {value.text}
                   </p>
                 </div>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

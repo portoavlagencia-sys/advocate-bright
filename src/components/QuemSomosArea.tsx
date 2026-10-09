@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
 import { Reveal } from "./Reveal";
+import { Magnetic } from "./motion";
+import { ReefButton } from "./ui/reef-button";
 import { site, whatsappLink } from "@/lib/site";
 
 type Props = {
@@ -52,14 +54,11 @@ export function QuemSomosArea({ areaTitle, paragraphs, whatsappMessage }: Props)
           </Reveal>
           <Reveal delay={0.16}>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-              <a
-                href={whatsappLink(whatsappMessage)}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
-              >
-                Falar com o advogado
-              </a>
+              <Magnetic>
+                <ReefButton href={whatsappLink(whatsappMessage)}>
+                  Falar com o advogado
+                </ReefButton>
+              </Magnetic>
               <Link
                 to="/escritorio"
                 className="inline-flex items-center justify-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] text-green-bright hover:underline"

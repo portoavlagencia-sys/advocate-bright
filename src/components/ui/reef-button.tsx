@@ -3,8 +3,9 @@ import { cn } from "@/lib/utils";
 
 /**
  * Botão com borda cônica giratória (efeito 21st.dev).
- * Repouso: borda branca/esverdeada girando, miolo escuro, texto claro.
+ * Repouso: borda verde girando, miolo escuro, texto claro.
  * Hover: miolo vira verde-bright e o texto inverte para escuro — nunca some.
+ * Sem href, renderiza <button type="submit"> para formulários.
  */
 export function ReefButton({
   href,
@@ -12,11 +13,18 @@ export function ReefButton({
   variant = "solid",
   className,
 }: {
-  href: string;
+  href?: string;
   children: ReactNode;
   variant?: "solid" | "ghost";
   className?: string;
 }) {
+  const inner =
+    "relative z-10 flex items-center justify-center gap-2 rounded-full px-8 py-[0.95rem] text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors duration-300";
+  const theme =
+    variant === "solid"
+      ? "bg-[#0c0f0d]/90 text-white backdrop-blur group-hover/reef:bg-green-bright group-hover/reef:text-[#06110b]"
+      : "bg-background/85 text-foreground backdrop-blur group-hover/reef:bg-green-bright group-hover/reef:text-[#06110b]";
+
   return (
     <span
       className={cn(
@@ -28,19 +36,15 @@ export function ReefButton({
         aria-hidden
         className="reef-spin absolute inset-[-60%] bg-[conic-gradient(from_0deg,var(--color-green-bright),transparent_30%,transparent_70%,var(--color-green-bright))]"
       />
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className={cn(
-          "relative z-10 flex items-center justify-center gap-2 rounded-full px-8 py-[0.95rem] text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors duration-300",
-          variant === "solid"
-            ? "bg-[#0c0f0d]/90 text-white backdrop-blur group-hover/reef:bg-green-bright group-hover/reef:text-[#06110b]"
-            : "bg-background/85 text-foreground backdrop-blur group-hover/reef:bg-green-bright group-hover/reef:text-[#06110b]",
-        )}
-      >
-        {children}
-      </a>
+      {href ? (
+        <a href={href} target="_blank" rel="noreferrer" className={cn(inner, theme)}>
+          {children}
+        </a>
+      ) : (
+        <button type="submit" className={cn(inner, theme, "w-full cursor-pointer")}>
+          {children}
+        </button>
+      )}
     </span>
   );
 }

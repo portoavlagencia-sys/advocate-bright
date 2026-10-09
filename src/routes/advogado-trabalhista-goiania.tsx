@@ -429,11 +429,11 @@ function TrabalhistaGoianiaPage() {
             {[postRescisao, postSemCarteira].map(
               (post) =>
                 post && (
+                  <Spotlight key={post.slug} className="bg-surface">
                   <Link
-                    key={post.slug}
                     to="/blog/$slug"
                     params={{ slug: post.slug }}
-                    className="group bg-surface p-8 transition-colors hover:bg-secondary lg:p-10"
+                    className="group flex h-full flex-col bg-surface p-8 transition-all hover:-translate-y-1 hover:bg-secondary lg:p-10"
                   >
                     <span className="text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground">
                       {post.category} · {post.readingTime}
@@ -446,6 +446,7 @@ function TrabalhistaGoianiaPage() {
                       {post.excerpt}
                     </p>
                   </Link>
+                  </Spotlight>
                 ),
             )}
           </div>

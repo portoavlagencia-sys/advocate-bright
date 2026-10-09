@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Mail, MessageCircle, Instagram, Clock, MapPin } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { Spotlight } from "@/components/motion";
+import { ReefButton } from "@/components/ui/reef-button";
 import { areas, site, whatsappLink } from "@/lib/site";
 import fotoEscritorio from "@/assets/foto-escritorio-interior.webp";
 
@@ -59,6 +61,7 @@ function ContatoPage() {
         <div className="mx-auto grid max-w-[84rem] gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1fr] lg:gap-14 lg:px-10 lg:py-28">
           <Reveal>
             <div className="space-y-px border border-border bg-border">
+              <Spotlight>
               <a
                 href={whatsappLink()}
                 target="_blank"
@@ -73,6 +76,8 @@ function ContatoPage() {
                   </span>
                 </span>
               </a>
+              </Spotlight>
+              <Spotlight>
               <a
                 href={`mailto:${site.email}`}
                 className="flex items-center gap-5 bg-background p-8 transition-colors hover:bg-surface"
@@ -83,6 +88,8 @@ function ContatoPage() {
                   <span className="mt-2 block text-lg font-light">{site.email}</span>
                 </span>
               </a>
+              </Spotlight>
+              <Spotlight>
               <a
                 href={site.instagramUrl}
                 target="_blank"
@@ -95,6 +102,7 @@ function ContatoPage() {
                   <span className="mt-2 block text-lg font-light">{site.instagram}</span>
                 </span>
               </a>
+              </Spotlight>
               <div className="flex items-center gap-5 bg-background p-8">
                 <Clock className="size-5 text-green-bright" aria-hidden />
                 <span>
@@ -175,12 +183,11 @@ function ContatoPage() {
                 </label>
               </div>
 
-              <button
-                type="submit"
-                className="mt-8 w-full bg-primary px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
-              >
-                Enviar pelo WhatsApp
-              </button>
+              <div className="mt-8">
+                <ReefButton className="w-full">
+                  Enviar pelo WhatsApp
+                </ReefButton>
+              </div>
 
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
                 As informações enviadas são tratadas com sigilo profissional. O envio não

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { Spotlight } from "@/components/motion";
 import { areas } from "@/lib/site";
 
 export const Route = createFileRoute("/areas-de-atuacao/")({
@@ -43,6 +44,7 @@ function AreasIndex() {
           <div className="divide-y divide-border border-y border-border">
             {areas.map((area, i) => (
               <Reveal key={area.slug} delay={i * 0.05}>
+                <Spotlight>
                 <Link
                   to="/areas-de-atuacao/$slug"
                   params={{ slug: area.slug }}
@@ -71,6 +73,7 @@ function AreasIndex() {
                     </ul>
                   </div>
                 </Link>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

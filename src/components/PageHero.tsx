@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import Velaris from "./ui/velaris";
 
 export function PageHero({
   eyebrow,
@@ -10,6 +11,7 @@ export function PageHero({
   imageAlt,
   bgImage,
   bgAlt,
+  velaris,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -19,9 +21,17 @@ export function PageHero({
   imageAlt?: string | undefined;
   bgImage?: string | undefined;
   bgAlt?: string | undefined;
+  /** Fundo vivo WebGL quando não há foto. Padrão: ativo sem foto. */
+  velaris?: boolean;
 }) {
+  const showVelaris = velaris ?? (!bgImage && !image);
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
+      {showVelaris && (
+        <div className="absolute inset-0" aria-hidden>
+          <Velaris speed={0.9} />
+        </div>
+      )}
       {bgImage && (
         <>
           <img

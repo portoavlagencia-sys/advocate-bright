@@ -2,6 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { Magnetic, Spotlight } from "@/components/motion";
+import { ReefButton } from "@/components/ui/reef-button";
 import { getPost, posts } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -81,16 +83,17 @@ function PostPage() {
             no WhatsApp — eu leio e te digo o que dá para fazer, sem compromisso.
           </p>
 
-          <a
-            href={`https://wa.me/5562982060993?text=${encodeURIComponent(
-              `Olá, li o artigo "${post.title}" e meu caso parece parecido. Posso te mandar os documentos?`,
-            )}`}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
-          >
-            Meu caso parece com esse — pedir análise
-          </a>
+          <div className="mt-8">
+            <Magnetic>
+              <ReefButton
+                href={`https://wa.me/5562982060993?text=${encodeURIComponent(
+                  `Olá, li o artigo "${post.title}" e meu caso parece parecido. Posso te mandar os documentos?`,
+                )}`}
+              >
+                Meu caso parece com esse — pedir análise
+              </ReefButton>
+            </Magnetic>
+          </div>
         </div>
       </article>
 
@@ -102,10 +105,11 @@ function PostPage() {
           <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
             {others.map((other, i) => (
               <Reveal key={other.slug} delay={i * 0.05} className="bg-surface">
+                <Spotlight className="h-full">
                 <Link
                   to="/blog/$slug"
                   params={{ slug: other.slug }}
-                  className="flex h-full flex-col p-8 transition-colors hover:bg-secondary lg:p-10"
+                  className="flex h-full flex-col p-8 transition-all hover:-translate-y-1 hover:bg-secondary lg:p-10"
                 >
                   <span className="eyebrow text-muted-foreground">{other.category}</span>
                   <h3 className="mt-5 flex items-start gap-3 text-lg font-light leading-snug">
@@ -113,6 +117,7 @@ function PostPage() {
                     <ArrowUpRight className="mt-1 size-4 shrink-0 text-green-bright" />
                   </h3>
                 </Link>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

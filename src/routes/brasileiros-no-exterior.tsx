@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { Spotlight } from "@/components/motion";
 import { exteriorServices, site } from "@/lib/site";
 import fotoPassaporte from "@/assets/foto-passaporte-exterior.webp";
 
@@ -74,7 +75,8 @@ function ExteriorPage() {
           <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <Reveal key={step.number} delay={i * 0.05} className="bg-background">
-                <div className="h-full p-8 lg:p-10">
+                <Spotlight className="h-full">
+                <div className="h-full p-8 transition-transform duration-500 hover:-translate-y-1 lg:p-10">
                   <span className="text-xs tracking-[0.2em] text-green-bright">
                     {step.number}
                   </span>
@@ -83,6 +85,7 @@ function ExteriorPage() {
                     {step.text}
                   </p>
                 </div>
+                </Spotlight>
               </Reveal>
             ))}
           </div>
@@ -103,6 +106,7 @@ function ExteriorPage() {
           <div className="mt-14 divide-y divide-border border-y border-border">
             {exteriorServices.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05}>
+                <Spotlight>
                 <Link
                   to="/areas-de-atuacao/$slug"
                   params={{ slug: item.areaSlug }}
@@ -119,6 +123,7 @@ function ExteriorPage() {
                   </span>
                   <ArrowUpRight className="size-5 text-green-bright opacity-0 transition-opacity group-hover:opacity-100" />
                 </Link>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

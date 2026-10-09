@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { Spotlight } from "@/components/motion";
 import { posts } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
@@ -42,6 +43,7 @@ function BlogIndex() {
           <div className="divide-y divide-border border-y border-border">
             {posts.map((post, i) => (
               <Reveal key={post.slug} delay={i * 0.05}>
+                <Spotlight>
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
@@ -68,6 +70,7 @@ function BlogIndex() {
                   </span>
                   <ArrowUpRight className="size-5 text-green-bright opacity-0 transition-opacity group-hover:opacity-100" />
                 </Link>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

@@ -199,6 +199,14 @@
   }
 }
 
+/* Número fantasma vazado (carrossel exterior) */
+@utility ghost-number {
+  color: transparent;
+  -webkit-text-stroke: 1.5px
+    color-mix(in oklab, var(--color-green-bright) 55%, transparent);
+  user-select: none;
+}
+
 /* Borda cônica giratória do ReefButton */
 @utility reef-wrap {
   isolation: isolate;

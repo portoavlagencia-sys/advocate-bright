@@ -12,9 +12,10 @@ import {
   Magnetic,
   Spotlight,
 } from "@/components/motion";
-import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
+import { areas, site, whatsappLink } from "@/lib/site";
 import { posts } from "@/lib/blog";
 import { SobreAdvogado } from "@/components/SobreAdvogado";
+import { ExteriorCarousel } from "@/components/ExteriorCarousel";
 import { FAQ } from "@/components/FAQ";
 import { homeFaq } from "@/lib/area-content";
 
@@ -217,20 +218,8 @@ function Home() {
               Morar fora não deveria custar uma passagem para resolver um processo aqui.
             </h2>
           </Reveal>
-          <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2">
-            {exteriorServices.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.05} className="bg-surface">
-                <Spotlight className="h-full">
-                <div className="h-full p-8 transition-transform duration-500 hover:-translate-y-1 lg:p-10">
-                  <span className="eyebrow text-muted-foreground">{item.areaLabel}</span>
-                  <h3 className="mt-5 text-lg font-medium">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    {item.text}
-                  </p>
-                </div>
-                </Spotlight>
-              </Reveal>
-            ))}
+          <div className="mt-14">
+            <ExteriorCarousel />
           </div>
           <Reveal delay={0.2}>
             <Link

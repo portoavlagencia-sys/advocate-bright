@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const vertexShaderGLSL = `
@@ -104,6 +104,11 @@ const Velaris = ({
 }: VelarisProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [glOk, setGlOk] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   const hexToRgb = (hex: string): [number, number, number] => {
     const h = hex.replace("#", "");
@@ -132,6 +137,10 @@ const Velaris = ({
       const s = gl.createShader(type)!;
       gl.shaderSource(s, src);
       gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.warn("[velaris] shader error:", gl.getShaderInfoLog(s));
+        setGlOk(false);
+      }
       return s;
     };
 
@@ -142,7 +151,11 @@ const Velaris = ({
       createShader(gl.FRAGMENT_SHADER, fragmentShaderGLSL),
     );
     gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.warn("[velaris] link error:", gl.getProgramInfoLog(program));
+      setGlOk(false);
+      return;
+    }
     gl.useProgram(program);
 
     const buffer = gl.createBuffer();
@@ -224,13 +237,27 @@ const Velaris = ({
   return (
     <div
       ref={containerRef}
-      className={cn("relative h-full w-full overflow-hidden", className)}
+      className={cn(
+        "relative h-full w-full overflow-hidden bg-[#0a0f0c]",
+        className,
+      )}
     >
-      <canvas
-        ref={canvasRef}
+      {/* Fallback estático: se o WebGL falhar, o fundo continua escuro e verde */}
+      <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full"
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 55% at 22% 18%, rgba(11,81,50,0.55), transparent 70%), radial-gradient(50% 50% at 82% 72%, rgba(15,107,65,0.4), transparent 70%), radial-gradient(40% 40% at 60% 40%, rgba(5,46,27,0.6), transparent 75%), #0a0f0c",
+        }}
       />
+      {glOk && (
+        <canvas
+          ref={canvasRef}
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full"
+        />
+      )}
       {/* Véu escuro para garantir leitura do texto por cima */}
       <div
         aria-hidden

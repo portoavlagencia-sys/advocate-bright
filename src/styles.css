@@ -163,6 +163,42 @@
   will-change: transform;
 }
 
+@utility marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Botão com brilho varrendo (estilo 21st.dev, contido) */
+@utility shine-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgb(255 255 255 / 22%) 50%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    transform: translateX(120%);
+  }
+}
+
+@utility pause-on-hover {
+  &:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
 /* Elevação sutil em cards e blocos clicáveis */
 @utility hover-lift {
   transition:

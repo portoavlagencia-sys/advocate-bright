@@ -14,6 +14,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { PageTransition } from "@/components/PageTransition";
+import { WhatsFloat } from "@/components/motion";
+import { whatsappLink } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -134,6 +136,7 @@ function RootComponent() {
         </PageTransition>
       </main>
       <Footer />
+      <WhatsFloat href={whatsappLink()} />
     </QueryClientProvider>
   );
 }

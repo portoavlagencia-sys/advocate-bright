@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { site, whatsappLink } from "@/lib/site";
 import { Reveal } from "./Reveal";
+import { Aurora, Magnetic } from "./motion";
 
 export function CTASection({
   title = "Agende uma consulta para avaliar o seu caso",
@@ -10,8 +11,9 @@ export function CTASection({
   text?: string;
 }) {
   return (
-    <section className="border-t border-border bg-green-deep">
-      <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+    <section className="relative overflow-hidden border-t border-border bg-green-deep">
+      <Aurora />
+      <div className="relative mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
         <Reveal>
           <span className="eyebrow text-primary-foreground/70">Fale com o escritório</span>
           <h2 className="mt-8 max-w-3xl text-3xl font-light leading-[1.12] tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
@@ -21,14 +23,16 @@ export function CTASection({
             {text}
           </p>
           <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-background px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-foreground transition-opacity hover:opacity-85"
-            >
-              WhatsApp {site.phoneDisplay}
-            </a>
+            <Magnetic>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+                className="shine-btn inline-block bg-background px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-foreground transition-all hover:-translate-y-0.5 hover:opacity-85"
+              >
+                <span className="relative z-10">WhatsApp {site.phoneDisplay}</span>
+              </a>
+            </Magnetic>
             <Link
               to="/contato"
               className="border border-primary-foreground/40 px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary-foreground/10"

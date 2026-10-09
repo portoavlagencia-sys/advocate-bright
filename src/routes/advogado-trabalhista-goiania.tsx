@@ -4,6 +4,13 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { FAQ } from "@/components/FAQ";
 import { PageHero } from "@/components/PageHero";
+import {
+  LiveBadge,
+  Magnetic,
+  ShineCTA,
+  Spotlight,
+  CountUp,
+} from "@/components/motion";
 import { site, whatsappLink } from "@/lib/site";
 import { getPost } from "@/lib/blog";
 import fotoTrabalhista from "@/assets/hero-trabalhista.webp";
@@ -162,15 +169,15 @@ function TrabalhistaGoianiaPage() {
         bgImage={fotoTrabalhista}
         bgAlt="Carteira de trabalho sobre a mesa do escritório"
       >
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-          <a
-            href={whatsappLink(WHATS_MSG)}
-            target="_blank"
-            rel="noreferrer"
-            className="bg-primary px-7 py-4 text-center text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright sm:px-8"
-          >
-            Mandar meus documentos
-          </a>
+        <div className="mt-8">
+          <LiveBadge text="Atendo hoje · Goiânia e online" />
+        </div>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <Magnetic>
+            <ShineCTA href={whatsappLink(WHATS_MSG)}>
+              Mandar meus documentos
+            </ShineCTA>
+          </Magnetic>
           <Link
             to="/areas-de-atuacao/$slug"
             params={{ slug: "direito-trabalhista" }}
@@ -185,6 +192,28 @@ function TrabalhistaGoianiaPage() {
           nada do que você mandar vira conteúdo ou exemplo.
         </p>
       </PageHero>
+
+      {/* Faixa de números animados — quebra o bloco estático */}
+      <div className="border-b border-border bg-surface">
+        <div className="mx-auto grid max-w-[84rem] grid-cols-3 divide-x divide-border px-5 sm:px-6 lg:px-10">
+          {[
+            { v: 18, s: "", label: "Varas do Trabalho em Goiânia" },
+            { v: 2, s: " anos", label: "para entrar após a saída" },
+            { v: 5, s: " anos", label: "de direitos que dá para cobrar" },
+          ].map((stat) => (
+            <div key={stat.label} className="px-4 py-8 text-center sm:py-10">
+              <CountUp
+                to={stat.v}
+                suffix={stat.s}
+                className="block text-3xl font-light tracking-tight text-green-bright sm:text-4xl"
+              />
+              <span className="mt-2 block text-xs leading-relaxed text-muted-foreground">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* O QUE MAIS CHEGA — linguagem falada */}
       <section className="border-b border-border">
@@ -204,18 +233,17 @@ function TrabalhistaGoianiaPage() {
           </Reveal>
           <ul className="mt-12 grid gap-px border border-border bg-border md:grid-cols-2">
             {casosQueChegam.map((caso) => (
-              <li
-                key={caso.slice(0, 24)}
-                className="flex items-start gap-4 bg-background p-6 sm:p-7"
-              >
-                <Check
-                  className="mt-1 size-4 shrink-0 text-green-bright"
-                  aria-hidden
-                />
-                <span className="text-sm leading-relaxed text-foreground/85">
-                  {caso}
-                </span>
-              </li>
+              <Spotlight key={caso.slice(0, 24)} className="bg-background">
+                <li className="flex h-full items-start gap-4 p-6 sm:p-7">
+                  <Check
+                    className="mt-1 size-4 shrink-0 text-green-bright"
+                    aria-hidden
+                  />
+                  <span className="text-sm leading-relaxed text-foreground/85">
+                    {caso}
+                  </span>
+                </li>
+              </Spotlight>
             ))}
           </ul>
           <Reveal delay={0.1}>
@@ -266,7 +294,8 @@ function TrabalhistaGoianiaPage() {
                 que não perdoa
               </p>
               <p className="mt-6 text-2xl font-light leading-snug">
-                2 anos para entrar. 5 anos para cobrar.
+                <CountUp to={2} /> anos para entrar. <CountUp to={5} /> anos
+                para cobrar.
               </p>
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 Saiu da empresa em março de 2024? Tem até março de 2026 para
@@ -294,9 +323,9 @@ function TrabalhistaGoianiaPage() {
                 href={whatsappLink(WHATS_MSG)}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
+                className="shine-btn mt-8 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-green-bright"
               >
-                Pedir a conta do meu caso
+                <span className="relative z-10">Pedir a conta do meu caso</span>
               </a>
             </div>
           </Reveal>

@@ -4,6 +4,14 @@ import heroImg from "@/assets/hero-escritorio.jpg";
 import { Reveal } from "@/components/Reveal";
 import { HeroImage } from "@/components/HeroImage";
 import { CTASection } from "@/components/CTASection";
+import {
+  Aurora,
+  SplitReveal,
+  Magnetic,
+  ShineCTA,
+  LiveBadge,
+  Spotlight,
+} from "@/components/motion";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
 import { posts } from "@/lib/blog";
 import { SobreAdvogado } from "@/components/SobreAdvogado";
@@ -67,23 +75,19 @@ function Home() {
           alt="Sala de reuniões do escritório ao entardecer"
           className="absolute inset-0 size-full scale-105 object-cover opacity-35 [.light_&]:opacity-20"
         />
+        <Aurora />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <Reveal>
-            <span className="eyebrow text-green-bright">
-              Advocacia em Goiânia · Brasil e exterior
-            </span>
-            <span className="rule-green mt-5" />
+            <LiveBadge text="Responde no mesmo dia útil · Goiânia e online" />
           </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-10 max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]">
-              Advogado em Goiânia para
-              <br />
-              <span className="font-medium">
-                trabalho, imóveis, herança e família.
-              </span>
-            </h1>
-          </Reveal>
+          <div className="mt-8">
+            <SplitReveal
+              as="h1"
+              text="Advogado em Goiânia para trabalho, imóveis, herança e família."
+              className="block max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]"
+            />
+          </div>
           <Reveal delay={0.2}>
             <p className="mt-10 max-w-2xl text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
               Verbas rescisórias que não caíram na conta, um inventário parado há anos, a
@@ -112,14 +116,11 @@ function Home() {
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
-              >
-                Analisar meu caso
-              </a>
+              <Magnetic>
+                <ShineCTA href={whatsappLink()}>
+                  Analisar meu caso
+                </ShineCTA>
+              </Magnetic>
               <Link
                 to="/areas-de-atuacao"
                 className="group inline-flex items-center gap-2 border border-border px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
@@ -128,6 +129,10 @@ function Home() {
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
+            <p className="mt-6 flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="inline-block h-px w-10 bg-green-bright" aria-hidden />
+              Role para ver como funciona — sem compromisso
+            </p>
           </Reveal>
           <Reveal delay={0.4}>
             <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
@@ -142,7 +147,7 @@ function Home() {
       </section>
 
       {/* MARQUEE */}
-      <div className="overflow-hidden border-b border-border bg-surface py-5">
+      <div className="marquee-mask pause-on-hover overflow-hidden border-b border-border bg-surface py-5">
         <div className="marquee-track flex w-max items-center gap-8 whitespace-nowrap">
           {[...marquee, ...marquee, ...marquee, ...marquee].map((item, i) => (
             <span
@@ -176,6 +181,7 @@ function Home() {
             <div className="divide-y divide-border border-t border-border">
               {areas.map((area, i) => (
                 <Reveal key={area.slug} delay={i * 0.06}>
+                  <Spotlight>
                   <Link
                     to="/areas-de-atuacao/$slug"
                     params={{ slug: area.slug }}
@@ -194,6 +200,7 @@ function Home() {
                       </span>
                     </span>
                   </Link>
+                  </Spotlight>
                 </Reveal>
               ))}
             </div>
@@ -213,13 +220,15 @@ function Home() {
           <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2">
             {exteriorServices.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05} className="bg-surface">
-                <div className="h-full p-8 lg:p-10">
+                <Spotlight className="h-full">
+                <div className="h-full p-8 transition-transform duration-500 hover:-translate-y-1 lg:p-10">
                   <span className="eyebrow text-muted-foreground">{item.areaLabel}</span>
                   <h3 className="mt-5 text-lg font-medium">{item.title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                     {item.text}
                   </p>
                 </div>
+                </Spotlight>
               </Reveal>
             ))}
           </div>

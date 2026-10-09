@@ -9,7 +9,6 @@ import {
   SplitReveal,
   Magnetic,
   ShineCTA,
-  LiveBadge,
   Spotlight,
 } from "@/components/motion";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
@@ -78,9 +77,6 @@ function Home() {
         <Aurora />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
-          <Reveal>
-            <LiveBadge text="Responde no mesmo dia útil · Goiânia e online" />
-          </Reveal>
           <div className="mt-8">
             <SplitReveal
               as="h1"

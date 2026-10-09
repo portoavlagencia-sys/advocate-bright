@@ -7,10 +7,10 @@ import { PageHero } from "@/components/PageHero";
 import {
   LiveBadge,
   Magnetic,
-  ShineCTA,
   Spotlight,
   CountUp,
 } from "@/components/motion";
+import { ReefButton } from "@/components/ui/reef-button";
 import { site, whatsappLink } from "@/lib/site";
 import { getPost } from "@/lib/blog";
 import fotoTrabalhista from "@/assets/hero-trabalhista.webp";
@@ -174,9 +174,9 @@ function TrabalhistaGoianiaPage() {
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <Magnetic>
-            <ShineCTA href={whatsappLink(WHATS_MSG)}>
+            <ReefButton href={whatsappLink(WHATS_MSG)}>
               Mandar meus documentos
-            </ShineCTA>
+            </ReefButton>
           </Magnetic>
           <Link
             to="/areas-de-atuacao/$slug"
@@ -319,14 +319,11 @@ function TrabalhistaGoianiaPage() {
                   vê”.
                 </p>
               </div>
-              <a
-                href={whatsappLink(WHATS_MSG)}
-                target="_blank"
-                rel="noreferrer"
-                className="shine-btn mt-8 block bg-primary px-6 py-4 text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-green-bright"
-              >
-                <span className="relative z-10">Pedir a conta do meu caso</span>
-              </a>
+              <div className="mt-8">
+                <ReefButton href={whatsappLink(WHATS_MSG)}>
+                  Pedir a conta do meu caso
+                </ReefButton>
+              </div>
             </div>
           </Reveal>
         </div>

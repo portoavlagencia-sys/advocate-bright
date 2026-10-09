@@ -4,11 +4,12 @@ import heroImg from "@/assets/hero-escritorio.jpg";
 import { Reveal } from "@/components/Reveal";
 import { HeroImage } from "@/components/HeroImage";
 import { CTASection } from "@/components/CTASection";
+import Velaris from "@/components/ui/velaris";
+import { ReefButton } from "@/components/ui/reef-button";
 import {
   Aurora,
   SplitReveal,
   Magnetic,
-  ShineCTA,
   Spotlight,
 } from "@/components/motion";
 import { areas, exteriorServices, site, whatsappLink } from "@/lib/site";
@@ -113,9 +114,9 @@ function Home() {
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Magnetic>
-                <ShineCTA href={whatsappLink()}>
+                <ReefButton href={whatsappLink()}>
                   Analisar meu caso
-                </ShineCTA>
+                </ReefButton>
               </Magnetic>
               <Link
                 to="/areas-de-atuacao"
@@ -157,9 +158,12 @@ function Home() {
         </div>
       </div>
 
-      {/* ÁREAS */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+      {/* ÁREAS — fundo vivo Velaris com véu escuro para leitura */}
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0" aria-hidden>
+          <Velaris speed={0.9} />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
               <span className="eyebrow text-green-bright">O que fazemos</span>

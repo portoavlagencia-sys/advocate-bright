@@ -199,6 +199,28 @@
   }
 }
 
+/* Borda cônica giratória do ReefButton */
+@utility reef-wrap {
+  isolation: isolate;
+}
+
+@keyframes reef-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reef-spin {
+  animation: reef-spin 4s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reef-spin {
+    animation: none;
+  }
+}
+
 /* Elevação sutil em cards e blocos clicáveis */
 @utility hover-lift {
   transition:

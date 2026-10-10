@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight, Check, FileText, Plus } from "lucide-react";
+import { ArrowUpRight, CheckCheck, FileText, Plus } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
@@ -134,18 +134,43 @@ function AreaPage() {
               Situações em que a orientação jurídica muda o resultado
             </h2>
           </Reveal>
-          <ul className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2">
+          <div className="mt-14 max-w-2xl space-y-3">
             {content.signals.map((signal, i) => (
-              <Reveal key={signal} delay={i * 0.03} className="bg-surface">
-                <li className="flex h-full items-start gap-4 p-7">
-                  <Check className="mt-0.5 size-4 shrink-0 text-green-bright" />
-                  <span className="text-sm leading-relaxed text-foreground/85">
-                    {signal}
-                  </span>
-                </li>
+              <Reveal key={signal} delay={Math.min(i * 0.04, 0.24)}>
+                <div className="flex justify-start">
+                  <div className="max-w-[88%] rounded-2xl rounded-tl-md border border-border bg-surface px-5 py-4">
+                    <p className="text-sm leading-relaxed text-foreground/90">
+                      {signal}
+                    </p>
+                    <div className="mt-1 flex justify-end">
+                      <CheckCheck className="size-4 text-green-bright" />
+                    </div>
+                  </div>
+                </div>
               </Reveal>
             ))}
-          </ul>
+            <Reveal>
+              <div className="flex justify-end">
+                <div className="max-w-[88%] rounded-2xl rounded-tr-md border border-green-bright/30 bg-green-bright/10 px-5 py-4">
+                  <p className="text-sm leading-relaxed text-foreground">
+                    Se algum desses parece com o seu caso, me chama no WhatsApp
+                    que eu analiso.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal>
+              <a
+                href={whatsappLink(content.whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-primary px-7 py-4 text-[0.72rem] uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-green-bright"
+              >
+                É o meu caso — chamar no WhatsApp
+                <ArrowUpRight className="size-4" />
+              </a>
+            </Reveal>
+          </div>
         </div>
       </section>
 

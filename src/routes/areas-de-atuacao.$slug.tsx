@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight, Check, FileText } from "lucide-react";
+import { ArrowUpRight, Check, FileText, Plus } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { FAQ } from "@/components/FAQ";
-import { Magnetic, Spotlight } from "@/components/motion";
+import { Magnetic } from "@/components/motion";
 import { ReefButton } from "@/components/ui/reef-button";
 import { areas, site, whatsappLink } from "@/lib/site";
 import { areaContent, areaAbout } from "@/lib/area-content";
@@ -177,22 +177,35 @@ function AreaPage() {
               Serviços dentro de {area.title}
             </h2>
           </Reveal>
-          <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2">
+          <div className="mt-14 divide-y divide-border border-y border-border">
             {area.services.map((service, i) => (
-              <Reveal key={service.title} delay={i * 0.04} className="bg-background">
-                <Spotlight className="h-full">
-                <div className="h-full p-7 transition-transform duration-500 hover:-translate-y-1 sm:p-8 lg:p-10">
-                  <span className="text-xs tracking-[0.2em] text-green-bright">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-5 text-lg font-medium leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    {service.text}
-                  </p>
-                </div>
-                </Spotlight>
+              <Reveal key={service.title} delay={i * 0.04}>
+                <details className="group" name="demandas">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 marker:hidden">
+                    <span className="flex items-baseline gap-5">
+                      <span className="text-xs tracking-[0.2em] text-green-bright">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-lg font-medium leading-snug transition-colors group-open:text-green-bright sm:text-xl">
+                        {service.title}
+                      </span>
+                    </span>
+                    <Plus className="size-5 shrink-0 text-green-bright transition-transform duration-300 group-open:rotate-45" />
+                  </summary>
+                  <div className="max-w-2xl pb-8 pl-10 pr-4 sm:pl-12">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {service.text}
+                    </p>
+                    <a
+                      href={whatsappLink(`Olá, gostaria de falar sobre: ${service.title}.`)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-green-bright transition-opacity hover:opacity-80"
+                    >
+                      Falar sobre este caso <ArrowUpRight className="size-4" />
+                    </a>
+                  </div>
+                </details>
               </Reveal>
             ))}
           </div>

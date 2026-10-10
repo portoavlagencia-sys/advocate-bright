@@ -8,7 +8,13 @@ export function PageHero({
   children,
   image,
   imageAlt,
+  imageWidth,
+  imageHeight,
   bgImage,
+  bgSrcSet,
+  bgSizes = "100vw",
+  bgWidth = 1920,
+  bgHeight = 1080,
   bgAlt,
   velaris,
 }: {
@@ -18,7 +24,13 @@ export function PageHero({
   children?: ReactNode;
   image?: string | undefined;
   imageAlt?: string | undefined;
+  imageWidth?: number | undefined;
+  imageHeight?: number | undefined;
   bgImage?: string | undefined;
+  bgSrcSet?: string | undefined;
+  bgSizes?: string | undefined;
+  bgWidth?: number | undefined;
+  bgHeight?: number | undefined;
   bgAlt?: string | undefined;
   /** Fundo vivo WebGL quando não há foto. Padrão: ativo sem foto. */
   velaris?: boolean;
@@ -35,11 +47,14 @@ export function PageHero({
         <>
           <img
             src={bgImage}
+            srcSet={bgSrcSet}
+            sizes={bgSizes}
             alt={bgAlt ?? ""}
             fetchPriority="high"
             loading="eager"
-            width={1600}
-            height={900}
+            decoding="async"
+            width={bgWidth}
+            height={bgHeight}
             className="absolute inset-0 h-full w-full object-cover opacity-45 [.light_&]:opacity-20"
           />
           <div
@@ -77,7 +92,10 @@ export function PageHero({
             <img
               src={image}
               alt={imageAlt ?? ""}
+              width={imageWidth ?? 1200}
+              height={imageHeight ?? 1200}
               fetchPriority="high"
+              decoding="async"
               className="h-64 w-full object-cover sm:h-80 lg:h-[26rem]"
             />
           </div>

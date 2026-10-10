@@ -14,6 +14,7 @@ export function Footer() {
               width={200}
               height={200}
               loading="lazy"
+              decoding="async"
               className="h-14 w-14 object-contain brightness-0 invert"
             />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">

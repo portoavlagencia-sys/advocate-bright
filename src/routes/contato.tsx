@@ -47,6 +47,8 @@ function ContatoPage() {
       <PageHero
         image={fotoEscritorio}
         imageAlt="Interior do escritório de advocacia"
+        imageWidth={1600}
+        imageHeight={2400}
         eyebrow="Contato"
         title={
           <>

@@ -57,6 +57,8 @@ function ExteriorPage() {
       <PageHero
         image={fotoPassaporte}
         imageAlt="Passaporte brasileiro sobre mapa, representando clientes que moram fora"
+        imageWidth={1600}
+        imageHeight={2396}
         eyebrow="Atendimento remoto"
         title={
           <>

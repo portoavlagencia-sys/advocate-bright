@@ -7,9 +7,9 @@ import { Magnetic, Spotlight } from "@/components/motion";
 import Velaris from "@/components/ui/velaris";
 import { ReefButton } from "@/components/ui/reef-button";
 import { site, whatsappLink } from "@/lib/site";
+import { HERO_SIZES, heroEscritorio } from "@/lib/hero-images";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
 
-import heroEscritorio from "@/assets/hero-escritorio-em.webp";
 import arquivo from "@/assets/foto-arquivo-processos.webp";
 
 export const Route = createFileRoute("/escritorio")({
@@ -87,8 +87,12 @@ function EscritorioPage() {
           </>
         }
         lead="Escritório em Goiânia, com atuação em Direito Trabalhista, Regularização de Imóveis, Sucessões e Família, e atendimento remoto para clientes de outros Estados e do exterior."
-        bgImage={heroEscritorio}
-        bgAlt="Recepção do escritório Edmom Moraes Advocacia"
+        bgImage={heroEscritorio.src}
+        bgSrcSet={heroEscritorio.srcSet}
+        bgSizes={HERO_SIZES}
+        bgWidth={heroEscritorio.width}
+        bgHeight={heroEscritorio.height}
+        bgAlt={heroEscritorio.alt}
       />
 
       <section className="border-b border-border">
@@ -101,6 +105,7 @@ function EscritorioPage() {
                 width={1200}
                 height={1499}
                 loading="lazy"
+                decoding="async"
                 className="w-full object-cover"
               />
               <div className="absolute -bottom-px left-0 right-0 border-t-2 border-green-bright bg-background/90 px-5 py-4 backdrop-blur-sm sm:px-6 sm:py-5">
@@ -215,7 +220,10 @@ function EscritorioPage() {
             <img
               src={arquivo}
               alt="Pastas e documentos de processos organizados no escritório"
+              width={1600}
+              height={2400}
               loading="lazy"
+              decoding="async"
               className="h-full min-h-64 w-full object-cover"
             />
           </Reveal>

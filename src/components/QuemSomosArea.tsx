@@ -25,6 +25,7 @@ export function QuemSomosArea({ areaTitle, paragraphs, whatsappMessage }: Props)
               width={1200}
               height={1499}
               loading="lazy"
+              decoding="async"
               className="w-full object-cover"
             />
             <div className="absolute -bottom-px left-0 right-0 border-t-2 border-green-bright bg-background/90 px-5 py-4 backdrop-blur-sm">

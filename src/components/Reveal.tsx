@@ -19,16 +19,23 @@ export function Reveal({
   delay = 0,
   className = "",
   variant = "up",
+  eager = false,
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
   variant?: Variant;
+  /**
+   * Conteúdo acima da dobra (ex.: hero): renderiza visível de imediato, sem
+   * animação — evita atrasar FCP/LCP esperando o JS de animação.
+   */
+  eager?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(eager);
 
   useEffect(() => {
+    if (eager) return;
     const el = ref.current;
     if (!el) return;
     if (
@@ -49,7 +56,7 @@ export function Reveal({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [eager]);
 
   return (
     <div

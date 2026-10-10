@@ -60,6 +60,9 @@ export function Header() {
           <img
             src="/logo-edmom-moraes.svg"
             alt={`${site.name} — logotipo`}
+            width={320}
+            height={98}
+            decoding="async"
             className={`w-auto max-w-[220px] object-contain brightness-0 invert transition-[height,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 sm:max-w-[260px] ${
               scrolled ? "h-10" : "h-12"
             }`}

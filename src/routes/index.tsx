@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import heroImg from "@/assets/hero-home.webp";
+import { HERO_SIZES, heroHome } from "@/lib/hero-images";
 import { Reveal } from "@/components/Reveal";
 import { HeroImage } from "@/components/HeroImage";
 import { CTASection } from "@/components/CTASection";
@@ -37,6 +37,14 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content:
           "Direito Trabalhista, Imóveis, Sucessões e Família. Atendimento remoto para clientes no Brasil e no exterior.",
+      },
+    ],
+    links: [
+      {
+        rel: "preload",
+        href: heroHome.src,
+        as: "image",
+        fetchPriority: "high",
       },
     ],
   }),
@@ -80,8 +88,12 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
         <HeroImage
-          src={heroImg}
-          alt="Sala de reuniões do escritório ao entardecer"
+          src={heroHome.src}
+          srcSet={heroHome.srcSet}
+          sizes={HERO_SIZES}
+          width={heroHome.width}
+          height={heroHome.height}
+          alt={heroHome.alt}
           className="absolute inset-0 size-full scale-105 object-cover opacity-35 [.light_&]:opacity-20"
         />
         <Aurora />

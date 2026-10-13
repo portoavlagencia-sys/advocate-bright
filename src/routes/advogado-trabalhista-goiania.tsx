@@ -91,11 +91,11 @@ const faqGoiania = [
   },
   {
     q: "Quanto custa entrar com processo trabalhista?",
-    a: "Quem não tem condição pede justiça gratuita e não paga custas. Meus honorários seguem a tabela da OAB-GO, combinados por escrito antes de começar — fixo, por etapa ou com êxito. Nada é cobrado sem contrato. E honorário de sucumbência, quando há, é do advogado e não se confunde com o contratado.",
+    a: "Cada caso é estudado individualmente, e os honorários são apresentados de forma personalizada, de acordo com o que o caso exige. Tudo combinado por escrito, em contrato, antes de começar. E honorário de sucumbência, quando há, é do advogado e não se confunde com o contratado.",
   },
   {
     q: "Perdi o prazo? Até quando posso cobrar?",
-    a: "Você tem 2 anos depois da saída para entrar com ação, e pode cobrar os últimos 5 anos trabalhados. Exemplo: saiu em março de 2024, tem até março de 2026 — e cobra de 2021 para frente. Cada mês parado apaga um mês de direito. Não deixe para depois.",
+    a: "Você tem 2 anos depois da saída para entrar com ação, e pode cobrar os últimos 5 anos trabalhados. Exemplo: saiu em outubro de 2025, tem até outubro de 2027 — e cobra de 2020 para frente. Cada mês parado apaga um mês de direito. Não deixe para depois.",
   },
   {
     q: "Preciso ir ao escritório ou dá para resolver pelo WhatsApp?",
@@ -290,16 +290,16 @@ function TrabalhistaGoianiaPage() {
           <Reveal delay={0.08}>
             <div className="border border-border bg-background p-7 sm:p-9">
               <p className="flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] text-muted-foreground">
-                <Clock className="size-4 text-green-bright" aria-hidden /> Prazo
-                que não perdoa
+                <Clock className="size-4 text-green-bright" aria-hidden /> Fique atento
+                aos prazos
               </p>
               <p className="mt-6 text-2xl font-light leading-snug">
                 <CountUp to={2} /> anos para entrar. <CountUp to={5} /> anos
                 para cobrar.
               </p>
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                Saiu da empresa em março de 2024? Tem até março de 2026 para
-                ajuizar — e só consegue cobrar direitos de 2021 para frente.
+                Saiu da empresa em outubro de 2025? Tem até outubro de 2027 para
+                ajuizar — e só consegue cobrar direitos de 2020 para frente.
                 Cada mês que passa apaga um mês de hora extra, de diferença
                 salarial, de FGTS. É por isso que a orientação é sempre a
                 mesma: não espere “juntar tudo” para procurar. Manda o que tem.
@@ -313,10 +313,10 @@ function TrabalhistaGoianiaPage() {
                   Quanto custa
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Quem não pode pagar pede justiça gratuita. Meus honorários
-                  seguem a tabela da OAB-GO e ficam por escrito, em contrato,
-                  antes de começar. Sem taxa escondida, sem “depois a gente
-                  vê”.
+                  Todo caso é estudado com atenção, e o valor é repassado de
+                  maneira personalizada, conforme a necessidade e a
+                  complexidade de cada situação. Tudo fica combinado por
+                  escrito, antes de começar.
                 </p>
               </div>
               <div className="mt-8">
@@ -389,11 +389,10 @@ function TrabalhistaGoianiaPage() {
           <Reveal delay={0.1}>
             <div className="mt-14 border-l-2 border-green-bright bg-surface p-7 sm:p-9">
               <p className="max-w-3xl text-base leading-relaxed text-foreground/85">
-                “Eu atendo causa trabalhista há anos e aprendi uma coisa: quem
-                procura advogado trabalhista não quer tese, quer receber o que
-                trabalhou para ganhar. Meu trabalho é ler papel, fazer conta e
-                falar a verdade — mesmo quando a verdade é que o caso é fraco.
-                Se for forte, eu conduzo até o fim.”
+                “Cada trabalhador que chega até o escritório traz uma história
+                e uma preocupação real. Meu compromisso é analisar o caso com
+                cuidado, explicar com clareza quais são os seus direitos e
+                acompanhar cada etapa de perto, com seriedade e transparência.”
               </p>
               <p className="mt-5 text-sm text-muted-foreground">
                 — {site.lawyer}, advogado responsável · Goiânia/GO

@@ -107,7 +107,13 @@ export function Footer() {
                   {site.instagram}
                 </a>
               </li>
-              <li className="pt-2 text-muted-foreground">{site.city}</li>
+              <li className="pt-2 text-muted-foreground">
+                <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="hover:text-green-bright">
+                  {site.address}
+                  <br />
+                  {site.addressCity}
+                </a>
+              </li>
               <li className="text-muted-foreground">{site.hours}</li>
             </ul>
           </div>
@@ -115,7 +121,7 @@ export function Footer() {
 
         <div className="mt-16 border-t border-border pt-8">
           <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
-            {site.name} — {site.lawyer}, {site.oab}. Conteúdo meramente informativo, em
+            {site.name} — {site.lawyer}, {site.oab}. {site.oabEscritorio}. Conteúdo meramente informativo, em
             conformidade com o Código de Ética e Disciplina da OAB e com o Provimento
             205/2021. Este site não constitui oferta de serviços nem garantia de
             resultados.

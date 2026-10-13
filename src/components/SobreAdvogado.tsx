@@ -1,3 +1,4 @@
+import { Credentials } from "@/components/Credentials";
 import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, MapPin, MessageCircle, Calculator } from "lucide-react";
@@ -56,6 +57,7 @@ export function SobreAdvogado() {
               </span>
             </div>
           </div>
+<Credentials />
         </Reveal>
 
         <div>

@@ -1,3 +1,4 @@
+import { Credentials } from "@/components/Credentials";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -110,6 +111,7 @@ function EscritorioPage() {
                 </span>
               </div>
             </div>
+<Credentials />
           </Reveal>
 
           <div>

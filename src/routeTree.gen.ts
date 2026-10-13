@@ -11,12 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AdvogadoTrabalhistaGoianiaRouteImport } from './routes/advogado-trabalhista-goiania'
 import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BrasileirosNoExteriorRouteImport } from './routes/brasileiros-no-exterior'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as EscritorioRouteImport } from './routes/escritorio'
-import { Route as AdvogadoTrabalhistaGoianiaRouteImport } from './routes/advogado-trabalhista-goiania'
 import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -32,6 +32,12 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvogadoTrabalhistaGoianiaRoute =
+  AdvogadoTrabalhistaGoianiaRouteImport.update({
+    id: '/advogado-trabalhista-goiania',
+    path: '/advogado-trabalhista-goiania',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AreasDeAtuacaoRoute = AreasDeAtuacaoRouteImport.update({
   id: '/areas-de-atuacao',
   path: '/areas-de-atuacao',
@@ -57,12 +63,6 @@ const EscritorioRoute = EscritorioRouteImport.update({
   path: '/escritorio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdvogadoTrabalhistaGoianiaRoute =
-  AdvogadoTrabalhistaGoianiaRouteImport.update({
-    id: '/advogado-trabalhista-goiania',
-    path: '/advogado-trabalhista-goiania',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -87,12 +87,12 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
-  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -101,10 +101,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
-  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
@@ -114,12 +114,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
-  '/advogado-trabalhista-goiania': typeof AdvogadoTrabalhistaGoianiaRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -130,12 +130,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
+    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao'
     | '/blog'
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
-    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -144,10 +144,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/admin'
+    | '/advogado-trabalhista-goiania'
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
-    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao'
@@ -156,12 +156,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/admin'
+    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao'
     | '/blog'
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
-    | '/advogado-trabalhista-goiania'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -171,12 +171,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  AdvogadoTrabalhistaGoianiaRoute: typeof AdvogadoTrabalhistaGoianiaRoute
   AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRouteWithChildren
   BlogRoute: typeof BlogRouteWithChildren
   BrasileirosNoExteriorRoute: typeof BrasileirosNoExteriorRoute
   ContatoRoute: typeof ContatoRoute
   EscritorioRoute: typeof EscritorioRoute
-  AdvogadoTrabalhistaGoianiaRoute: typeof AdvogadoTrabalhistaGoianiaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -193,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advogado-trabalhista-goiania': {
+      id: '/advogado-trabalhista-goiania'
+      path: '/advogado-trabalhista-goiania'
+      fullPath: '/advogado-trabalhista-goiania'
+      preLoaderRoute: typeof AdvogadoTrabalhistaGoianiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-de-atuacao': {
@@ -228,13 +235,6 @@ declare module '@tanstack/react-router' {
       path: '/escritorio'
       fullPath: '/escritorio'
       preLoaderRoute: typeof EscritorioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/advogado-trabalhista-goiania': {
-      id: '/advogado-trabalhista-goiania'
-      path: '/advogado-trabalhista-goiania'
-      fullPath: '/advogado-trabalhista-goiania'
-      preLoaderRoute: typeof AdvogadoTrabalhistaGoianiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-de-atuacao/': {
@@ -297,12 +297,12 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  AdvogadoTrabalhistaGoianiaRoute: AdvogadoTrabalhistaGoianiaRoute,
   AreasDeAtuacaoRoute: AreasDeAtuacaoRouteWithChildren,
   BlogRoute: BlogRouteWithChildren,
   BrasileirosNoExteriorRoute: BrasileirosNoExteriorRoute,
   ContatoRoute: ContatoRoute,
   EscritorioRoute: EscritorioRoute,
-  AdvogadoTrabalhistaGoianiaRoute: AdvogadoTrabalhistaGoianiaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

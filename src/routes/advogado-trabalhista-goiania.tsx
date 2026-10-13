@@ -6,7 +6,6 @@ import { FAQ } from "@/components/FAQ";
 import { PageHero } from "@/components/PageHero";
 import {
   LiveBadge,
-  Magnetic,
   Spotlight,
   CountUp,
 } from "@/components/motion";

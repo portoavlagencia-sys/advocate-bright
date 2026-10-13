@@ -1,7 +1,19 @@
 export const site = {
   name: "Edmom Moraes Advocacia",
   lawyer: "Edmom Moraes",
-  oab: "OAB/GO (a informar)",
+  oab: "OAB/GO nº 52.315",
+  oabEscritorio: "Sociedade registrada na OAB/GO sob o nº 3.914",
+  address: "Rua 5, Setor Oeste · Edifício The Prime Tamandaré Office",
+  addressCity: "Goiânia/GO · CEP 74115-060",
+  mapsUrl: "https://maps.app.goo.gl/YB4LAA1DJsNji6ei6",
+  mapsEmbed:
+    "https://www.google.com/maps?q=Edif%C3%ADcio+The+Prime+Tamandar%C3%A9+Office,+Rua+5,+Setor+Oeste,+Goi%C3%A2nia&output=embed",
+  credentials: [
+    "Graduado em Direito pela PUC Goiás",
+    "Especialista em Direito Público (Faculdade Cambury)",
+    "Especialista em Direito Civil e Processo Civil (PROORDEM)",
+    "Membro da Comissão de Direito Imobiliário da OAB/GO",
+  ],
   phoneDisplay: "(62) 98206-0993",
   whatsappNumber: "5562982060993",
   email: "edmomm@gmail.com",

@@ -65,10 +65,10 @@ function Home() {
             areaServed: "BR",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Rua 5, Setor Oeste, Edifício The Prime Tamandaré Office",
+              streetAddress: "Rua 1A, Qd. A1, Lt. 21, Água Branca",
               addressLocality: "Goiânia",
               addressRegion: "GO",
-              postalCode: "74115-060",
+              postalCode: "74723-150",
               addressCountry: "BR",
             },
             knowsAbout: areas.map((a) => a.title),

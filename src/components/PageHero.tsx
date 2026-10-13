@@ -37,6 +37,8 @@ export function PageHero({
           <img
             src={bgImage}
             alt={bgAlt ?? ""}
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-45 [.light_&]:opacity-20"
           />
           <div
@@ -55,17 +57,17 @@ export function PageHero({
             <span className="eyebrow text-green-bright">{eyebrow}</span>
             <span className="rule-green mt-5" />
           </Reveal>
-          <Reveal delay={0.08}>
+          <div>
             <h1 className="mt-8 max-w-4xl text-4xl font-light leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               {title}
             </h1>
-          </Reveal>
+          </div>
           {lead && (
-            <Reveal delay={0.16}>
+            <div>
               <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
                 {lead}
               </p>
-            </Reveal>
+            </div>
           )}
           {children && <Reveal delay={0.22}>{children}</Reveal>}
         </div>
@@ -74,7 +76,7 @@ export function PageHero({
             <img
               src={image}
               alt={imageAlt ?? ""}
-              loading="lazy"
+              fetchPriority="high"
               className="h-64 w-full object-cover sm:h-80 lg:h-[26rem]"
             />
           </Reveal>

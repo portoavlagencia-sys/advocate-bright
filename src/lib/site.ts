@@ -3,11 +3,11 @@ export const site = {
   lawyer: "Edmom Moraes",
   oab: "OAB/GO nº 52.315",
   oabEscritorio: "Sociedade registrada na OAB/GO sob o nº 3.914",
-  address: "Rua 5, Setor Oeste · Edifício The Prime Tamandaré Office",
-  addressCity: "Goiânia/GO · CEP 74115-060",
-  mapsUrl: "https://maps.app.goo.gl/YB4LAA1DJsNji6ei6",
+  address: "Rua 1A, Qd. A1, Lt. 21 · Água Branca",
+  addressCity: "Goiânia/GO · CEP 74723-150",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+1A+Qd+A1+Lt+21+%C3%81gua+Branca+Goi%C3%A2nia+74723150",
   mapsEmbed:
-    "https://www.google.com/maps?q=Edif%C3%ADcio+The+Prime+Tamandar%C3%A9+Office,+Rua+5,+Setor+Oeste,+Goi%C3%A2nia&output=embed",
+    "https://www.google.com/maps?q=Rua+1A+Qd+A1+Lt+21,+%C3%81gua+Branca,+Goi%C3%A2nia,+74723150&output=embed",
   credentials: [
     "Graduado em Direito pela PUC Goiás",
     "Especialista em Direito Público (Faculdade Cambury)",

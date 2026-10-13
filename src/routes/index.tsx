@@ -63,7 +63,14 @@ function Home() {
             telephone: site.phoneDisplay,
             email: site.email,
             areaServed: "BR",
-            address: { "@type": "PostalAddress", addressCountry: "BR" },
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Rua 5, Setor Oeste, Edifício The Prime Tamandaré Office",
+              addressLocality: "Goiânia",
+              addressRegion: "GO",
+              postalCode: "74115-060",
+              addressCountry: "BR",
+            },
             knowsAbout: areas.map((a) => a.title),
           }),
         }}

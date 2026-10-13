@@ -115,13 +115,22 @@ function ContatoPage() {
               <div className="flex items-center gap-5 bg-background p-8">
                 <MapPin className="size-5 text-green-bright" aria-hidden />
                 <span>
-                  <span className="eyebrow block text-muted-foreground">Alcance</span>
-                  <span className="mt-2 block text-sm text-foreground/80">
-                    {site.city}
-                  </span>
+                  <span className="eyebrow block text-muted-foreground">Escritório</span>
+                  <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="mt-2 block text-sm text-foreground/80 hover:text-green-bright">
+                    {site.address}
+                    <br />
+                    {site.addressCity}
+                  </a>
                 </span>
               </div>
             </div>
+            <iframe
+              title="Mapa do escritório Edmom Moraes Advocacia em Goiânia"
+              src={site.mapsEmbed}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="mt-px h-64 w-full border-0 grayscale"
+            />
           </Reveal>
 
           <Reveal delay={0.1}>

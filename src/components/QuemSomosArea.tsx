@@ -1,3 +1,4 @@
+import { Credentials } from "@/components/Credentials";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import retrato from "@/assets/dr-edmom-moraes-advogado.webp";
@@ -35,6 +36,7 @@ export function QuemSomosArea({ areaTitle, paragraphs, whatsappMessage }: Props)
               </span>
             </div>
           </div>
+<Credentials />
         </Reveal>
 
         <div>

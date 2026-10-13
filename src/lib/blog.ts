@@ -138,6 +138,46 @@ export const posts: Post[] = [
       "Se a pensão aí de casa parou de cair, me chama com a decisão e os comprovantes. Eu te digo qual rito cabe e em quanto tempo dá para ver resultado.",
     ],
   },
+  {
+    slug: "uniao-estavel-conjuge-perdeu-direito-imovel",
+    title: "Separação na união estável: o cônjuge perde o direito ao imóvel?",
+    excerpt:
+      "Imóvel comprado durante a união, no nome de um só. Quem tem direito, quando a partilha cabe e o prazo que muita gente esquece.",
+    date: "2026-10-13",
+    dateLabel: "13 de outubro de 2026",
+    category: "Direito de Família",
+    readingTime: "4 min de leitura",
+    author: AUTHOR,
+    paragraphs: [
+      "Muitos casais vivem em união estável sem nenhum papel assinado. Quando a relação acaba, aparece a dúvida: o imóvel está no nome de um só, o outro fica sem nada?",
+      { heading: "A regra geral" },
+      "Sem contrato dizendo outra coisa, vale a comunhão parcial. O que foi comprado com esforço do casal durante a união é dos dois, mesmo que a escritura tenha só um nome. Bem que já era de um antes da união, ou que veio por herança ou doação, fica fora.",
+      { heading: "Onde a pessoa perde o direito" },
+      "Na falta de prova. É preciso mostrar que a união existia na data da compra: conta conjunta, endereço comum, filhos, fotos, declaração de imposto de renda. Outro risco é o imóvel ser vendido antes da partilha. Quanto antes o pedido entra, mais fácil proteger o bem.",
+      { heading: "Financiamento no meio do caminho" },
+      "Se o imóvel ainda está financiado, a partilha recai sobre as parcelas pagas durante a união, não sobre o valor cheio do imóvel. A conta precisa ser feita com o extrato do contrato.",
+      "Se você passa por isso, me manda a matrícula do imóvel e o que você tem para provar a união. Eu te digo o que dá para pedir.",
+    ],
+  },
+  {
+    slug: "quantas-parcelas-atrasar-financiamento-imovel",
+    title: "Quantas parcelas posso atrasar no financiamento antes do leilão?",
+    excerpt:
+      "Alienação fiduciária, intimação do cartório e o prazo para quitar. O que acontece quando o financiamento atrasa e como evitar o leilão.",
+    date: "2026-10-13",
+    dateLabel: "13 de outubro de 2026",
+    category: "Regularização de Imóveis",
+    readingTime: "4 min de leitura",
+    author: AUTHOR,
+    paragraphs: [
+      "Não existe um número mágico de parcelas. Depende do contrato e do tipo de garantia. Na maioria dos financiamentos habitacionais, o imóvel está em alienação fiduciária, e o banco pode agir rápido.",
+      { heading: "Como o processo anda" },
+      "Depois do atraso previsto no contrato, o banco pede ao cartório que intime o comprador. A partir da intimação, há 15 dias para pagar as parcelas vencidas com encargos. Sem pagamento, a propriedade passa para o banco e o imóvel vai a leilão.",
+      { heading: "Ainda dá para reagir" },
+      "Intimação feita de forma errada, falta de aviso das datas do leilão e valores cobrados a mais podem ser questionados. Também é possível negociar ou pedir revisão antes do leilão. O prazo é curto, por isso o contrato precisa ser lido logo.",
+      "Recebeu intimação do cartório? Me manda o documento e o contrato de financiamento hoje mesmo. Eu te digo quanto tempo você tem e o que dá para fazer.",
+    ],
+  },
 ];
 
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug);

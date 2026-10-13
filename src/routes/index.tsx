@@ -118,7 +118,7 @@ function Home() {
                 <span className="text-green-bright">+</span> Direito de família
               </li>
             </ul>
-          </Reveal>
+          </div>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Magnetic>

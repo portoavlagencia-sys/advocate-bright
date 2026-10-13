@@ -174,11 +174,9 @@ function TrabalhistaGoianiaPage() {
           <LiveBadge text="Atendo hoje · Goiânia e online" />
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-          <Magnetic>
-            <ReefButton href={whatsappLink(WHATS_MSG)}>
-              Mandar meus documentos
-            </ReefButton>
-          </Magnetic>
+          <ReefButton href={whatsappLink(WHATS_MSG)}>
+            Mandar meus documentos
+          </ReefButton>
           <Link
             to="/areas-de-atuacao/$slug"
             params={{ slug: "direito-trabalhista" }}

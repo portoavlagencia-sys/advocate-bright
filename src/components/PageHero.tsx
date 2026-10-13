@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Reveal } from "./Reveal";
 import Velaris from "./ui/velaris";
 
 export function PageHero({
@@ -38,7 +37,9 @@ export function PageHero({
             src={bgImage}
             alt={bgAlt ?? ""}
             fetchPriority="high"
-            decoding="async"
+            loading="eager"
+            width={1600}
+            height={900}
             className="absolute inset-0 h-full w-full object-cover opacity-45 [.light_&]:opacity-20"
           />
           <div
@@ -53,10 +54,10 @@ export function PageHero({
         }`}
       >
         <div>
-          <Reveal>
+          <div>
             <span className="eyebrow text-green-bright">{eyebrow}</span>
             <span className="rule-green mt-5" />
-          </Reveal>
+          </div>
           <div>
             <h1 className="mt-8 max-w-4xl text-4xl font-light leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               {title}
@@ -69,17 +70,17 @@ export function PageHero({
               </p>
             </div>
           )}
-          {children && <Reveal delay={0.22}>{children}</Reveal>}
+          {children && <div>{children}</div>}
         </div>
         {image && (
-          <Reveal delay={0.18}>
+          <div>
             <img
               src={image}
               alt={imageAlt ?? ""}
               fetchPriority="high"
               className="h-64 w-full object-cover sm:h-80 lg:h-[26rem]"
             />
-          </Reveal>
+          </div>
         )}
       </div>
     </section>

@@ -7,6 +7,7 @@ import { ReefButton } from "@/components/ui/reef-button";
 import { getPost, posts } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const post = getPost(params.slug);
     if (!post) throw notFound();

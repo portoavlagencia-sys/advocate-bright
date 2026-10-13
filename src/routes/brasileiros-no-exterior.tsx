@@ -8,6 +8,7 @@ import { exteriorServices, site } from "@/lib/site";
 import fotoPassaporte from "@/assets/foto-passaporte-exterior.webp";
 
 export const Route = createFileRoute("/brasileiros-no-exterior")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Brasileiros no Exterior — advocacia remota no Brasil" },

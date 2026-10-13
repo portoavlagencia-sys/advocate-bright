@@ -16,6 +16,7 @@ import { getPost } from "@/lib/blog";
 import fotoTrabalhista from "@/assets/hero-trabalhista.webp";
 
 export const Route = createFileRoute("/advogado-trabalhista-goiania")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       {

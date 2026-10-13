@@ -20,6 +20,7 @@ import { FAQ } from "@/components/FAQ";
 import { homeFaq } from "@/lib/area-content";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Edmom Moraes Advocacia — Trabalhista, Imóveis, Sucessões e Família" },

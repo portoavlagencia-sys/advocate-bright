@@ -34,6 +34,7 @@ const areaPhotos: Record<string, { src: string; alt: string }> = {
 };
 
 export const Route = createFileRoute("/areas-de-atuacao/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const area = areas.find((a) => a.slug === params.slug);
     if (!area) throw notFound();

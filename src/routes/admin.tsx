@@ -6,6 +6,7 @@ import { AdminLogin } from "@/components/admin/AdminLogin";
 import { AdminPanel } from "@/components/admin/AdminPanel";
 
 export const Route = createFileRoute("/admin")({
+  staticData: { sitemap: "exclude-subtree" },
   head: () => ({
     meta: [
       { title: "Área restrita — Edmom Moraes Advocacia" },

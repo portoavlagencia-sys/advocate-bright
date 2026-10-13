@@ -12,6 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
-
-User-agent: *
 Disallow: /admin
+
+Sitemap: https://edmommoraesadvocacia.com.br/sitemap.xml

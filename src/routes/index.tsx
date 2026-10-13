@@ -87,13 +87,13 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <div className="mt-8">
-            <SplitReveal
-              as="h1"
-              text="Advogado em Goiânia para trabalho, imóveis, herança e família."
+            <h1
               className="block max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]"
-            />
+            >
+              Advogado em Goiânia para trabalho, imóveis, herança e família.
+            </h1>
           </div>
-          <Reveal delay={0.2}>
+          <div>
             <p className="mt-10 max-w-2xl text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
               Verbas rescisórias que não caíram na conta, um inventário parado há anos, a
               escritura que o vendedor não assina, a pensão que deixou de ser paga. São
@@ -118,7 +118,7 @@ function Home() {
                 <span className="text-green-bright">+</span> Direito de família
               </li>
             </ul>
-          </Reveal>
+          </div>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Magnetic>

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import heroImg from "@/assets/hero-escritorio.jpg";
+import heroImg from "@/assets/hero-home.webp";
 import { Reveal } from "@/components/Reveal";
 import { HeroImage } from "@/components/HeroImage";
 import { CTASection } from "@/components/CTASection";

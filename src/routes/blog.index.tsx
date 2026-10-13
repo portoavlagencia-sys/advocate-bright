@@ -7,6 +7,7 @@ import { Spotlight } from "@/components/motion";
 import { posts } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Blog — Edmom Moraes Advocacia" },

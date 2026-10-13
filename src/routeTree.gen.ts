@@ -17,6 +17,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BrasileirosNoExteriorRouteImport } from './routes/brasileiros-no-exterior'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as EscritorioRouteImport } from './routes/escritorio'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -63,6 +64,11 @@ const EscritorioRoute = EscritorioRouteImport.update({
   path: '/escritorio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/brasileiros-no-exterior': typeof BrasileirosNoExteriorRoute
   '/contato': typeof ContatoRoute
   '/escritorio': typeof EscritorioRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/sitemap.xml'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/sitemap.xml'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/brasileiros-no-exterior'
     | '/contato'
     | '/escritorio'
+    | '/sitemap.xml'
     | '/areas-de-atuacao/$slug'
     | '/blog/$slug'
     | '/areas-de-atuacao/'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   BrasileirosNoExteriorRoute: typeof BrasileirosNoExteriorRoute
   ContatoRoute: typeof ContatoRoute
   EscritorioRoute: typeof EscritorioRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -235,6 +248,13 @@ declare module '@tanstack/react-router' {
       path: '/escritorio'
       fullPath: '/escritorio'
       preLoaderRoute: typeof EscritorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-de-atuacao/': {
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrasileirosNoExteriorRoute: BrasileirosNoExteriorRoute,
   ContatoRoute: ContatoRoute,
   EscritorioRoute: EscritorioRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

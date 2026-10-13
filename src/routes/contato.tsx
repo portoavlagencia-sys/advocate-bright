@@ -9,6 +9,7 @@ import { areas, site, whatsappLink } from "@/lib/site";
 import fotoEscritorio from "@/assets/foto-escritorio-interior.webp";
 
 export const Route = createFileRoute("/contato")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Contato — Edmom Moraes Advocacia" },

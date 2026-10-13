@@ -13,6 +13,7 @@ import heroEscritorio from "@/assets/hero-escritorio-em.webp";
 import arquivo from "@/assets/foto-arquivo-processos.webp";
 
 export const Route = createFileRoute("/escritorio")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "O Escritório — Edmom Moraes Advocacia" },

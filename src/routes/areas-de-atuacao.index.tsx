@@ -7,6 +7,7 @@ import { Spotlight } from "@/components/motion";
 import { areas } from "@/lib/site";
 
 export const Route = createFileRoute("/areas-de-atuacao/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Áreas de Atuação — Edmom Moraes Advocacia" },

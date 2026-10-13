@@ -1,20 +1,23 @@
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type Variant = "up" | "fade" | "left" | "right" | "scale";
 
-const offsets: Record<Variant, { x?: number; y?: number; scale?: number }> = {
-  up: { y: 26 },
-  fade: {},
-  left: { x: -28 },
-  right: { x: 28 },
-  scale: { scale: 0.97, y: 14 },
+const hiddenClass: Record<Variant, string> = {
+  up: "translate-y-6",
+  fade: "",
+  left: "-translate-x-7",
+  right: "translate-x-7",
+  scale: "scale-[0.97] translate-y-3",
 };
 
+/**
+ * Reveal leve: IntersectionObserver + transição CSS (sem biblioteca de animação
+ * e sem filtro blur), para não pesar o carregamento no celular.
+ */
 export function Reveal({
   children,
   delay = 0,
-  className,
+  className = "",
   variant = "up",
 }: {
   children: ReactNode;
@@ -22,24 +25,41 @@ export function Reveal({
   className?: string;
   variant?: Variant;
 }) {
-  const reduced = useReducedMotion();
-  const from = offsets[variant];
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
 
-  if (reduced) return <div className={className}>{children}</div>;
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (
+      typeof IntersectionObserver === "undefined" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setShown(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -60px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, filter: "blur(6px)", ...from }}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-90px" }}
-      transition={{
-        duration: 0.9,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+    <div
+      ref={ref}
+      className={`transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+        shown ? "opacity-100" : `opacity-0 ${hiddenClass[variant]}`
+      } ${className}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

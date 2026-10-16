@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { AdminLogin } from "@/components/admin/AdminLogin";
 import { AdminPanel } from "@/components/admin/AdminPanel";
+import type { Me } from "@/components/admin/Perfil";
+import type { TeamRole } from "@/lib/roles";
 
 /**
  * Carregado via React.lazy pela rota /admin, para que o cliente Supabase
@@ -37,15 +39,26 @@ export function AdminGate() {
 }
 
 function RoleCheck({ userId, email }: { userId: string; email: string }) {
-  const [ok, setOk] = useState<boolean | null>(null);
-  useEffect(() => {
-    supabase
-      .rpc("has_role", { _user_id: userId, _role: "admin" })
-      .then(({ data }) => setOk(!!data));
-  }, [userId]);
-  if (ok === null)
+  const [me, setMe] = useState<Me | null | false>(null);
+  const load = useCallback(async () => {
+    const [{ data: role }, { data: row }, { data: u }] = await Promise.all([
+      supabase.rpc("team_role", { _uid: userId }),
+      supabase.from("team_members").select("name, avatar_url, email").eq("user_id", userId).maybeSingle(),
+      supabase.auth.getUser(),
+    ]);
+    if (!role) return setMe(false);
+    setMe({
+      id: userId,
+      email: u.user?.email ?? row?.email ?? email,
+      name: row?.name ?? "",
+      avatar_url: row?.avatar_url ?? null,
+      role: role as TeamRole,
+    });
+  }, [userId, email]);
+  useEffect(() => void load(), [load]);
+  if (me === null)
     return <p className="py-32 text-center text-sm text-muted-foreground">Verificando acesso…</p>;
-  if (!ok)
+  if (!me)
     return (
       <div className="py-32 text-center text-sm text-muted-foreground">
         Esta conta não tem acesso ao painel.{" "}
@@ -54,5 +67,5 @@ function RoleCheck({ userId, email }: { userId: string; email: string }) {
         </button>
       </div>
     );
-  return <AdminPanel email={email} />;
+  return <AdminPanel me={me} reload={load} />;
 }

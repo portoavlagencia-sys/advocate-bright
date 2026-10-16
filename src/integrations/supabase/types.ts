@@ -213,6 +213,33 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string | null
+          name: string | null
+          role: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          name?: string | null
+          role?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          name?: string | null
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       transactions: {
         Row: {
           amount: number
@@ -280,6 +307,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      can_access: { Args: { _area: string; _uid: string }; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -287,6 +315,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      team_role: { Args: { _uid: string }; Returns: string }
     }
     Enums: {
       app_role: "admin" | "user"

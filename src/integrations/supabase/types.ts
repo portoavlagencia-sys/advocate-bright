@@ -17,6 +17,7 @@ export type Database = {
       appointments: {
         Row: {
           client: string | null
+          client_id: string | null
           created_at: string
           done: boolean
           id: string
@@ -29,6 +30,7 @@ export type Database = {
         }
         Insert: {
           client?: string | null
+          client_id?: string | null
           created_at?: string
           done?: boolean
           id?: string
@@ -41,6 +43,7 @@ export type Database = {
         }
         Update: {
           client?: string | null
+          client_id?: string | null
           created_at?: string
           done?: boolean
           id?: string
@@ -51,12 +54,21 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "appointments_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       cases: {
         Row: {
           area: string | null
           client: string
+          client_id: string | null
           created_at: string
           id: string
           next_step: string | null
@@ -70,6 +82,7 @@ export type Database = {
         Insert: {
           area?: string | null
           client: string
+          client_id?: string | null
           created_at?: string
           id?: string
           next_step?: string | null
@@ -83,6 +96,7 @@ export type Database = {
         Update: {
           area?: string | null
           client?: string
+          client_id?: string | null
           created_at?: string
           id?: string
           next_step?: string | null
@@ -93,6 +107,172 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: "cases_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      clients: {
+        Row: {
+          area: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          notes: string | null
+          phone: string | null
+          source: string | null
+          stage: string
+          updated_at: string
+        }
+        Insert: {
+          area?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          source?: string | null
+          stage?: string
+          updated_at?: string
+        }
+        Update: {
+          area?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          source?: string | null
+          stage?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          body: string
+          category: string
+          cover_url: string | null
+          created_at: string
+          excerpt: string
+          id: string
+          published: boolean
+          published_at: string
+          slug: string
+          title: string
+        }
+        Insert: {
+          body?: string
+          category?: string
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string
+          id?: string
+          published?: boolean
+          published_at?: string
+          slug: string
+          title: string
+        }
+        Update: {
+          body?: string
+          category?: string
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string
+          id?: string
+          published?: boolean
+          published_at?: string
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      site_content: {
+        Row: {
+          data: Json
+          key: string
+          updated_at: string
+        }
+        Insert: {
+          data?: Json
+          key: string
+          updated_at?: string
+        }
+        Update: {
+          data?: Json
+          key?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          category: string
+          client_id: string | null
+          created_at: string
+          description: string
+          due_date: string
+          id: string
+          kind: string
+          paid: boolean
+        }
+        Insert: {
+          amount?: number
+          category?: string
+          client_id?: string | null
+          created_at?: string
+          description: string
+          due_date?: string
+          id?: string
+          kind?: string
+          paid?: boolean
+        }
+        Update: {
+          amount?: number
+          category?: string
+          client_id?: string | null
+          created_at?: string
+          description?: string
+          due_date?: string
+          id?: string
+          kind?: string
+          paid?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transactions_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
         Relationships: []
       }
     }
@@ -100,10 +280,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -230,6 +416,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const

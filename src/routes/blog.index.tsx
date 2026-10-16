@@ -4,10 +4,12 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { Spotlight } from "@/components/motion";
-import { posts } from "@/lib/blog";
+import { posts as staticPosts } from "@/lib/blog";
+import { listDbPosts } from "@/lib/cms.functions";
 
 export const Route = createFileRoute("/blog/")({
   staticData: { sitemap: true },
+  loader: async () => ({ dbPosts: await listDbPosts() }),
   head: () => ({
     meta: [
       { title: "Blog — Edmom Moraes Advocacia" },
@@ -27,6 +29,19 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function BlogIndex() {
+  const { dbPosts } = Route.useLoaderData();
+  const posts = [
+    ...dbPosts.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      author: "Edmom Moraes",
+      dateLabel: new Date(p.published_at + "T12:00:00").toLocaleDateString("pt-BR", { month: "long", year: "numeric" }),
+      readingTime: `${Math.max(1, Math.round(p.body.split(/\s+/).length / 200))} min de leitura`,
+    })),
+    ...staticPosts,
+  ];
   return (
     <>
       <PageHero

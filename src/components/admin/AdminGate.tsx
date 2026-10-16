@@ -32,5 +32,27 @@ export function AdminGate() {
     );
   }
 
-  return session ? <AdminPanel email={session.user.email ?? ""} /> : <AdminLogin />;
+  if (!session) return <AdminLogin />;
+  return <RoleCheck userId={session.user.id} email={session.user.email ?? ""} />;
+}
+
+function RoleCheck({ userId, email }: { userId: string; email: string }) {
+  const [ok, setOk] = useState<boolean | null>(null);
+  useEffect(() => {
+    supabase
+      .rpc("has_role", { _user_id: userId, _role: "admin" })
+      .then(({ data }) => setOk(!!data));
+  }, [userId]);
+  if (ok === null)
+    return <p className="py-32 text-center text-sm text-muted-foreground">Verificando acesso…</p>;
+  if (!ok)
+    return (
+      <div className="py-32 text-center text-sm text-muted-foreground">
+        Esta conta não tem acesso ao painel.{" "}
+        <button className="text-green-bright underline" onClick={() => supabase.auth.signOut()}>
+          Sair
+        </button>
+      </div>
+    );
+  return <AdminPanel email={email} />;
 }

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 export function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mode, setMode] = useState<"login" | "signup">("login");
+  const mode = "login" as const;
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -12,16 +12,8 @@ export function AdminLogin() {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const fn =
-      mode === "login"
-        ? supabase.auth.signInWithPassword({ email, password })
-        : supabase.auth.signUp({
-            email,
-            password,
-            options: { emailRedirectTo: `${window.location.origin}/admin` },
-          });
-    const { error } = await fn;
-    if (error) setError(error.message);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) setError("E-mail ou senha incorretos.");
     setBusy(false);
   }
 
@@ -79,16 +71,6 @@ export function AdminLogin() {
           </button>
         </form>
 
-        <button
-          type="button"
-          onClick={() => {
-            setMode(mode === "login" ? "signup" : "login");
-            setError(null);
-          }}
-          className="mt-6 text-xs uppercase tracking-[0.16em] text-green-bright hover:underline"
-        >
-          {mode === "login" ? "Primeiro acesso? Criar conta" : "Já tenho conta"}
-        </button>
       </div>
     </div>
   );

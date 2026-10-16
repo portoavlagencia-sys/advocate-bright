@@ -49,7 +49,7 @@ export function Equipe({ myId, myRole }: { myId: string; myRole: TeamRole }) {
             <div key={m.user_id} className="flex items-center gap-4 py-4">
               <div className="size-10 shrink-0 overflow-hidden rounded-full border border-border bg-background">
                 {m.avatar_url ? <img src={m.avatar_url} alt="" className="size-full object-cover" />
-                  : <span className="flex size-full items-center justify-center text-sm">{(m.name || m.email || "?")[0].toUpperCase()}</span>}
+                  : <span className="flex size-full items-center justify-center text-sm">{(m.name || m.email || "?").charAt(0).toUpperCase()}</span>}
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm">{m.name || "Sem nome"}{m.user_id === myId ? " (você)" : ""}</p>

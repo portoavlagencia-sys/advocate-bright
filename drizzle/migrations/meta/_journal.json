@@ -8,6 +8,20 @@
       "when": 1788368146711,
       "tag": "0000_create_admin_agenda_processos",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792184758167,
+      "tag": "0001_admin_crm_cms",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792184805361,
+      "tag": "0002_site_media_select",
+      "breakpoints": true
     }
   ]
 }

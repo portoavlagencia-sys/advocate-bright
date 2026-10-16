@@ -25,6 +25,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { PageTransition } from "@/components/PageTransition";
 import { WhatsFloat } from "@/components/motion";
 import { whatsappLink } from "@/lib/site";
+import { ContentOverrides } from "@/components/ContentOverrides";
 
 function NotFoundComponent() {
   return (
@@ -141,6 +142,7 @@ function RootComponent() {
       </main>
       <Footer />
       <WhatsFloat href={whatsappLink()} />
+      <ContentOverrides />
     </QueryClientProvider>
   );
 }

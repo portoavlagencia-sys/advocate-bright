@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { CalendarDays, FolderOpen, LogOut, Plus, Trash2 } from "lucide-react";
+import { CalendarDays, FolderOpen, LogOut, Plus, Trash2, Users, Wallet, PenSquare, Newspaper } from "lucide-react";
+import { Crm } from "@/components/admin/Crm";
+import { Financeiro } from "@/components/admin/Financeiro";
+import { SiteEditor } from "@/components/admin/SiteEditor";
+import { BlogAdmin } from "@/components/admin/BlogAdmin";
 import { supabase } from "@/integrations/supabase/client";
 
 type Appointment = {
@@ -38,15 +42,15 @@ function fmt(dt: string) {
 }
 
 export function AdminPanel({ email }: { email: string }) {
-  const [tab, setTab] = useState<"agenda" | "processos">("agenda");
+  const [tab, setTab] = useState<"crm" | "financeiro" | "agenda" | "processos" | "site" | "blog">("crm");
 
   return (
-    <div className="mx-auto max-w-[84rem] px-5 py-12 sm:px-6 lg:px-10 lg:py-16">
+    <div data-cms-ignore className="mx-auto max-w-[96rem] px-5 py-12 sm:px-6 lg:px-10 lg:py-16">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
         <div className="min-w-0">
           <span className="eyebrow text-green-bright">Painel interno</span>
           <h1 className="mt-3 truncate text-2xl font-light tracking-tight sm:text-3xl">
-            Agenda e processos
+            Painel do escritório
           </h1>
           <p className="mt-1 truncate text-xs text-muted-foreground">{email}</p>
         </div>
@@ -59,16 +63,20 @@ export function AdminPanel({ email }: { email: string }) {
         </button>
       </div>
 
-      <div className="mt-8 flex gap-2 border-b border-border">
+      <div className="mt-8 flex gap-1 overflow-x-auto border-b border-border">
         {[
+          { id: "crm" as const, label: "Clientes", icon: Users },
+          { id: "financeiro" as const, label: "Financeiro", icon: Wallet },
           { id: "agenda" as const, label: "Agenda", icon: CalendarDays },
           { id: "processos" as const, label: "Processos", icon: FolderOpen },
+          { id: "site" as const, label: "Editar site", icon: PenSquare },
+          { id: "blog" as const, label: "Blog", icon: Newspaper },
         ].map((t) => (
           <button
             key={t.id}
             type="button"
             onClick={() => setTab(t.id)}
-            className={`flex items-center gap-2 px-4 py-3 text-xs uppercase tracking-[0.16em] transition-colors ${
+            className={`flex shrink-0 items-center gap-2 px-4 py-3 text-xs uppercase tracking-[0.16em] transition-colors ${
               tab === t.id
                 ? "border-b-2 border-green-bright text-foreground"
                 : "text-muted-foreground hover:text-foreground"
@@ -80,7 +88,14 @@ export function AdminPanel({ email }: { email: string }) {
         ))}
       </div>
 
-      <div className="mt-8">{tab === "agenda" ? <Agenda /> : <Processos />}</div>
+      <div className="mt-8">
+        {tab === "crm" && <Crm />}
+        {tab === "financeiro" && <Financeiro />}
+        {tab === "agenda" && <Agenda />}
+        {tab === "processos" && <Processos />}
+        {tab === "site" && <SiteEditor />}
+        {tab === "blog" && <BlogAdmin />}
+      </div>
     </div>
   );
 }

@@ -4,12 +4,29 @@ import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { Magnetic, Spotlight } from "@/components/motion";
 import { ReefButton } from "@/components/ui/reef-button";
-import { getPost, posts } from "@/lib/blog";
+import { getPost, posts, type Post } from "@/lib/blog";
+import { getDbPost } from "@/lib/cms.functions";
+import { postParagraphs } from "@/lib/cms";
 
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
-  loader: ({ params }) => {
-    const post = getPost(params.slug);
+  loader: async ({ params }) => {
+    let post: Post | undefined = getPost(params.slug);
+    if (!post) {
+      const db = await getDbPost({ data: { slug: params.slug } });
+      if (db)
+        post = {
+          slug: db.slug,
+          title: db.title,
+          excerpt: db.excerpt,
+          date: db.published_at,
+          dateLabel: new Date(db.published_at + "T12:00:00").toLocaleDateString("pt-BR", { month: "long", year: "numeric" }),
+          category: db.category,
+          readingTime: `${Math.max(1, Math.round(db.body.split(/\s+/).length / 200))} min de leitura`,
+          author: "Edmom Moraes",
+          paragraphs: postParagraphs(db.body),
+        };
+    }
     if (!post) throw notFound();
     return { post };
   },

@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { CalendarDays, FolderOpen, LogOut, Plus, Trash2, Users, Wallet, PenSquare, Newspaper } from "lucide-react";
+import { CalendarDays, FolderOpen, Home, LogOut, Plus, Shield, Trash2, UserCircle, Users, Wallet, PenSquare, Newspaper } from "lucide-react";
+import { Inicio } from "@/components/admin/Inicio";
+import { Perfil, type Me } from "@/components/admin/Perfil";
+import { Equipe } from "@/components/admin/Equipe";
+import { ROLE_LABEL, canAccess, type Area } from "@/lib/roles";
 import { Crm } from "@/components/admin/Crm";
 import { Financeiro } from "@/components/admin/Financeiro";
 import { SiteEditor } from "@/components/admin/SiteEditor";
@@ -41,18 +45,36 @@ function fmt(dt: string) {
   });
 }
 
-export function AdminPanel({ email }: { email: string }) {
-  const [tab, setTab] = useState<"crm" | "financeiro" | "agenda" | "processos" | "site" | "blog">("crm");
+export function AdminPanel({ me, reload }: { me: Me; reload: () => void }) {
+  const [tab, setTab] = useState<Area>("inicio");
+  const tabs = [
+    { id: "inicio" as const, label: "Início", icon: Home },
+    { id: "crm" as const, label: "Clientes", icon: Users },
+    { id: "financeiro" as const, label: "Financeiro", icon: Wallet },
+    { id: "agenda" as const, label: "Agenda", icon: CalendarDays },
+    { id: "processos" as const, label: "Processos", icon: FolderOpen },
+    { id: "site" as const, label: "Editar site", icon: PenSquare },
+    { id: "blog" as const, label: "Blog", icon: Newspaper },
+    { id: "equipe" as const, label: "Equipe", icon: Shield },
+    { id: "perfil" as const, label: "Perfil", icon: UserCircle },
+  ].filter((t) => canAccess(me.role, t.id));
 
   return (
     <div data-cms-ignore className="mx-auto max-w-[96rem] px-5 py-12 sm:px-6 lg:px-10 lg:py-16">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-        <div className="min-w-0">
-          <span className="eyebrow text-green-bright">Painel interno</span>
-          <h1 className="mt-3 truncate text-2xl font-light tracking-tight sm:text-3xl">
-            Painel do escritório
-          </h1>
-          <p className="mt-1 truncate text-xs text-muted-foreground">{email}</p>
+        <div className="flex min-w-0 items-center gap-4">
+          <button type="button" onClick={() => setTab("perfil")} aria-label="Perfil"
+            className="size-12 shrink-0 overflow-hidden rounded-full border border-border bg-surface">
+            {me.avatar_url ? <img src={me.avatar_url} alt="" className="size-full object-cover" />
+              : <span className="flex size-full items-center justify-center">{(me.name || me.email)[0]?.toUpperCase()}</span>}
+          </button>
+          <div className="min-w-0">
+            <span className="eyebrow text-green-bright">Painel interno · {ROLE_LABEL[me.role]}</span>
+            <h1 className="mt-1 truncate text-xl font-light tracking-tight sm:text-2xl">
+              {me.name || "Painel do escritório"}
+            </h1>
+            <p className="truncate text-xs text-muted-foreground">{me.email}</p>
+          </div>
         </div>
         <button
           type="button"
@@ -64,14 +86,7 @@ export function AdminPanel({ email }: { email: string }) {
       </div>
 
       <div className="mt-8 flex gap-1 overflow-x-auto border-b border-border">
-        {[
-          { id: "crm" as const, label: "Clientes", icon: Users },
-          { id: "financeiro" as const, label: "Financeiro", icon: Wallet },
-          { id: "agenda" as const, label: "Agenda", icon: CalendarDays },
-          { id: "processos" as const, label: "Processos", icon: FolderOpen },
-          { id: "site" as const, label: "Editar site", icon: PenSquare },
-          { id: "blog" as const, label: "Blog", icon: Newspaper },
-        ].map((t) => (
+        {tabs.map((t) => (
           <button
             key={t.id}
             type="button"
@@ -89,12 +104,15 @@ export function AdminPanel({ email }: { email: string }) {
       </div>
 
       <div className="mt-8">
+        {tab === "inicio" && <Inicio name={me.name} role={me.role} />}
         {tab === "crm" && <Crm />}
         {tab === "financeiro" && <Financeiro />}
         {tab === "agenda" && <Agenda />}
         {tab === "processos" && <Processos />}
         {tab === "site" && <SiteEditor />}
         {tab === "blog" && <BlogAdmin />}
+        {tab === "equipe" && <Equipe myId={me.id} myRole={me.role} />}
+        {tab === "perfil" && <Perfil me={me} onChange={reload} />}
       </div>
     </div>
   );

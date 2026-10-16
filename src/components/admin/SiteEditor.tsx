@@ -160,7 +160,7 @@ export function SiteEditor() {
             src={`${path}?preview=1`}
             onLoad={send}
             className="h-[78vh] bg-background"
-            style={{ width: device === "desktop" ? "100%" : 390 }}
+            style={{ width: device === "desktop" ? "100%" : 390, height: "78vh" }}
           />
         </div>
       </div>

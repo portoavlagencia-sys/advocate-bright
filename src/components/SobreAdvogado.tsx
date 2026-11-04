@@ -37,7 +37,7 @@ export function SobreAdvogado() {
 
   return (
     <section className="border-b border-border">
-      <div className="mx-auto grid max-w-[84rem] gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-10 lg:py-32">
+      <div className="mx-auto grid max-w-[84rem] gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-10 lg:py-24">
         <Reveal>
           <div className="relative">
             <img

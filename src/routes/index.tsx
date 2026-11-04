@@ -88,35 +88,51 @@ function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
-        <HeroImage
-          src={heroHome.src}
-          srcSet={heroHome.srcSet}
-          sizes={HERO_SIZES}
-          width={heroHome.width}
-          height={heroHome.height}
-          alt={heroHome.alt}
-          className="absolute inset-0 size-full scale-105 object-cover object-right opacity-60 [.light_&]:opacity-75"
-        />
-        <Aurora />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
-        <Selo className="pointer-events-none absolute -right-16 top-1/2 hidden w-[40rem] -translate-y-1/2 text-foreground opacity-[0.14] lg:block" />
-        <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
-          <div className="mt-8">
+        {/* Foto no celular: faixa visível no topo */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden sm:hidden">
+          <HeroImage
+            src={heroHome.src}
+            srcSet={heroHome.srcSet}
+            sizes={HERO_SIZES}
+            width={heroHome.width}
+            height={heroHome.height}
+            alt={heroHome.alt}
+            className="absolute inset-0 size-full object-cover object-[70%_center]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/20 to-background" />
+          <Selo className="pointer-events-none absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 text-foreground opacity-40" />
+        </div>
+        <div className="absolute inset-0 hidden sm:block">
+          <HeroImage
+            src={heroHome.src}
+            srcSet={heroHome.srcSet}
+            sizes={HERO_SIZES}
+            width={heroHome.width}
+            height={heroHome.height}
+            alt=""
+            className="absolute inset-0 size-full object-cover object-right opacity-60 [.light_&]:opacity-75"
+          />
+          <Aurora />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
+          <Selo className="pointer-events-none absolute -right-16 top-1/2 w-[26rem] -translate-y-1/2 text-foreground opacity-[0.22] lg:w-[40rem]" />
+        </div>
+        <div className="relative mx-auto max-w-[84rem] -mt-6 px-5 pb-16 pt-0 sm:mt-0 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
+          <div className="sm:mt-8">
             <h1
-              className="block max-w-5xl text-[2.6rem] font-light leading-[1.04] tracking-tight sm:text-6xl lg:text-[5.2rem]"
+              className="block max-w-5xl text-[2.3rem] font-light leading-[1.08] tracking-tight sm:text-6xl lg:text-[5.2rem]"
             >
               Advogado em Goiânia para <span className="font-normal text-green-bright">trabalho, imóveis, herança e família</span>.
             </h1>
           </div>
           <div>
-            <p className="mt-10 max-w-2xl text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base sm:mt-10 font-light leading-relaxed text-muted-foreground sm:text-lg">
               Verbas rescisórias que não caíram na conta, um inventário parado há anos, a
               escritura que o vendedor não assina, a pensão que deixou de ser paga. São
               esses os casos que chegam aqui. Você manda os documentos pelo WhatsApp, o
               advogado lê, diz o que dá para fazer e em quanto tempo. Atendimento em
               Goiânia ou por vídeo, de onde você estiver.
             </p>
-            <h2 className="mt-10 max-w-2xl text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+            <h2 className="mt-8 max-w-2xl text-lg sm:mt-10 sm:text-xl font-medium tracking-tight text-foreground sm:text-2xl">
               Advocacia ágil e descomplicada para resolver o que importa:
             </h2>
             <ul className="mt-5 max-w-2xl space-y-2 text-base font-light text-foreground/90">
@@ -135,7 +151,7 @@ function Home() {
             </ul>
           </div>
           <Reveal delay={0.3}>
-            <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Magnetic>
                 <ReefButton href={whatsappLink()}>
                   Analisar meu caso
@@ -143,7 +159,7 @@ function Home() {
               </Magnetic>
               <Link
                 to="/areas-de-atuacao"
-                className="group inline-flex items-center gap-2 border border-border px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
+                className="group inline-flex items-center gap-2 border border-border justify-center px-8 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
               >
                 Áreas de atuação
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -155,7 +171,7 @@ function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+            <ul className="mt-10 flex flex-col gap-2 sm:mt-14 sm:flex-row sm:flex-wrap sm:gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
               <li>Atendimento presencial e online</li>
               <li className="text-green-bright">·</li>
               <li>Resposta no mesmo dia útil</li>

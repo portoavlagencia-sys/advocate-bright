@@ -173,9 +173,9 @@ function Home() {
           <Reveal delay={0.4}>
             <ul className="mt-10 flex flex-col gap-2 sm:mt-14 sm:flex-row sm:flex-wrap sm:gap-x-8 gap-y-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
               <li>Atendimento presencial e online</li>
-              <li className="text-green-bright">·</li>
+              <li className="hidden text-green-bright sm:block">·</li>
               <li>Resposta no mesmo dia útil</li>
-              <li className="text-green-bright">·</li>
+              <li className="hidden text-green-bright sm:block">·</li>
               <li>Atuação em todo o Brasil</li>
             </ul>
           </Reveal>

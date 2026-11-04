@@ -94,16 +94,16 @@ function Home() {
           width={heroHome.width}
           height={heroHome.height}
           alt={heroHome.alt}
-          className="absolute inset-0 size-full scale-105 object-cover opacity-35 [.light_&]:opacity-20"
+          className="absolute inset-0 size-full scale-105 object-cover object-right opacity-60 [.light_&]:opacity-75"
         />
         <Aurora />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
         <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <div className="mt-8">
             <h1
-              className="block max-w-5xl text-[2.6rem] font-extralight leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.2rem]"
+              className="block max-w-5xl text-[2.6rem] font-light leading-[1.04] tracking-tight sm:text-6xl lg:text-[5.2rem]"
             >
-              Advogado em Goiânia para trabalho, imóveis, herança e família.
+              Advogado em Goiânia para <span className="font-normal text-green-bright">trabalho, imóveis, herança e família</span>.
             </h1>
           </div>
           <div>
@@ -184,7 +184,7 @@ function Home() {
         <div className="absolute inset-0" aria-hidden>
           <Velaris speed={0.9} />
         </div>
-        <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
               <span className="eyebrow text-green-bright">O que fazemos</span>
@@ -231,7 +231,7 @@ function Home() {
 
       {/* EXTERIOR */}
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
             <span className="eyebrow text-green-bright">Brasileiros no exterior</span>
             <h2 className="mt-8 max-w-3xl text-3xl font-light leading-[1.12] tracking-tight sm:text-4xl lg:text-5xl">
@@ -258,7 +258,7 @@ function Home() {
 
       {/* BLOG */}
       <section className="border-b border-border">
-        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+        <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>

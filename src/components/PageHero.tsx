@@ -55,11 +55,11 @@ export function PageHero({
             decoding="async"
             width={bgWidth}
             height={bgHeight}
-            className="absolute inset-0 h-full w-full object-cover opacity-45 [.light_&]:opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-60 [.light_&]:opacity-55"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30 [.light_&]:from-background [.light_&]:via-background/90"
+            className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-background/10 [.light_&]:from-background [.light_&]:via-background/80"
           />
         </>
       )}

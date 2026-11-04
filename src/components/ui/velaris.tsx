@@ -104,11 +104,10 @@ const Velaris = ({
 }: VelarisProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [glOk, setGlOk] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
+  const [glOk, setGlOk] = useState(false);
+  useEffect(() => {
+    setGlOk(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
 
   const hexToRgb = (hex: string): [number, number, number] => {
     const h = hex.replace("#", "");
@@ -232,7 +231,7 @@ const Velaris = ({
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bg, speed, grain]);
+  }, [bg, speed, grain, glOk]);
 
   return (
     <div

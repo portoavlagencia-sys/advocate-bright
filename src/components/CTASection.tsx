@@ -17,7 +17,7 @@ export function CTASection({
       <div className="absolute inset-0" aria-hidden>
         <Velaris speed={1.4} />
       </div>
-      <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         <Reveal>
           <span className="eyebrow text-primary-foreground/70">Fale com o escritório</span>
           <h2 className="mt-8 max-w-3xl text-3xl font-light leading-[1.12] tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">

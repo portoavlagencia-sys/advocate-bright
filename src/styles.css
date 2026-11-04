@@ -51,13 +51,13 @@
   --radius: 0px;
 
   /* Preto da logo */
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.16 0.012 160);
   --foreground: oklch(0.98 0 0);
 
   /* Superfícies escuras de apoio */
-  --surface: oklch(0.19 0.004 160);
+  --surface: oklch(0.22 0.03 160);
   --surface-foreground: oklch(0.98 0 0);
-  --card: oklch(0.19 0.004 160);
+  --card: oklch(0.21 0.022 160);
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.19 0.004 160);
   --popover-foreground: oklch(0.98 0 0);
@@ -66,12 +66,12 @@
   --primary: oklch(0.38 0.083 160);
   --primary-foreground: oklch(0.99 0 0);
   --green-deep: oklch(0.32 0.075 160);
-  --green-bright: oklch(0.58 0.115 160);
+  --green-bright: oklch(0.66 0.13 158);
 
   --secondary: oklch(0.24 0.006 160);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.24 0.006 160);
-  --muted-foreground: oklch(0.72 0.006 160);
+  --muted-foreground: oklch(0.84 0.01 160);
   --accent: oklch(0.38 0.083 160);
   --accent-foreground: oklch(0.99 0 0);
 
@@ -88,10 +88,10 @@
 
 /* Tema claro — acionado pelo botão no menu (classe .light no <html>) */
 .light {
-  --background: oklch(0.99 0 0);
+  --background: oklch(0.99 0.004 150);
   --foreground: oklch(0.17 0.004 160);
 
-  --surface: oklch(0.965 0.003 160);
+  --surface: oklch(0.95 0.022 158);
   --surface-foreground: oklch(0.17 0.004 160);
   --card: oklch(0.98 0.002 160);
   --card-foreground: oklch(0.17 0.004 160);
@@ -106,7 +106,7 @@
   --secondary: oklch(0.95 0.004 160);
   --secondary-foreground: oklch(0.17 0.004 160);
   --muted: oklch(0.95 0.004 160);
-  --muted-foreground: oklch(0.44 0.008 160);
+  --muted-foreground: oklch(0.36 0.012 160);
   --accent: oklch(0.36 0.08 160);
   --accent-foreground: oklch(0.99 0 0);
 
@@ -201,9 +201,7 @@
 
 /* Número fantasma vazado (carrossel exterior) */
 @utility ghost-number {
-  color: transparent;
-  -webkit-text-stroke: 1.5px
-    color-mix(in oklab, var(--color-green-bright) 55%, transparent);
+  color: var(--color-green-bright);
   user-select: none;
 }
 
@@ -304,3 +302,11 @@
     scroll-behavior: auto !important;
   }
 }
+
+.logo-svg .logo-g {
+  fill: var(--green-bright);
+  stroke: var(--green-bright);
+}
+
+body { font-size: 1.0625rem; }
+main a.underline-offset-4, main a[class*="text-green"] { text-decoration-line: underline; text-underline-offset: 4px; }

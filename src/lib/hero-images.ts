@@ -55,20 +55,20 @@ export const heroHome = build(
   homeFull,
   home768,
   home1280,
-  1600,
-  1600,
-  1200,
-  "Sala de reuniões do escritório ao entardecer",
+  1920,
+  1920,
+  1280,
+  "Estátua da Justiça com balança, em ambiente claro",
 );
 
 export const heroTrabalhista = build(
   trabalhistaFull,
   trabalhista768,
   trabalhista1280,
-  1400,
-  1400,
-  788,
-  "Carteira de trabalho sobre a mesa do escritório",
+  1920,
+  1920,
+  1282,
+  "Advogado assinando documento trabalhista sobre a mesa",
 );
 
 export const heroImoveis = build(

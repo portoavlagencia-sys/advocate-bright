@@ -1,3 +1,4 @@
+import { coverPath } from "@/lib/blog-cover";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -63,9 +64,10 @@ function BlogIndex() {
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
-                  className="group grid gap-6 py-12 transition-colors hover:bg-surface/60 lg:grid-cols-[14rem_1fr_auto] lg:items-start"
+                  className="group grid gap-6 py-12 transition-colors hover:bg-surface/60 lg:grid-cols-[18rem_1fr_auto] lg:items-start"
                 >
                   <span>
+                    <img src={coverPath(post.category)} alt={`Capa: ${post.category}`} width={1200} height={630} loading="lazy" decoding="async" className="mb-5 aspect-[1200/630] w-full object-cover" />
                     <span className="eyebrow block text-green-bright">
                       {post.category}
                     </span>

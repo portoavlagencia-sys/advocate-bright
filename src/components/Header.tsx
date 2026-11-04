@@ -1,3 +1,4 @@
+import { Logo } from "@/components/Logo";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -57,14 +58,9 @@ export function Header() {
         }`}
       >
         <Link to="/" className="group flex items-center" aria-label={site.name}>
-          <img
-            src="/logo-edmom-moraes.svg"
-            alt={`${site.name} — logotipo`}
-            width={320}
-            height={98}
-            decoding="async"
-            className={`w-auto max-w-[220px] object-contain brightness-0 invert transition-[height,transform] duration-500 group-hover:scale-105 [.light_&]:invert-0 sm:max-w-[260px] ${
-              scrolled ? "h-10" : "h-12"
+          <Logo
+            className={`w-auto shrink-0 text-foreground transition-[height,transform] duration-500 group-hover:scale-[1.03] ${
+              scrolled ? "h-11 sm:h-12" : "h-12 sm:h-16"
             }`}
           />
         </Link>

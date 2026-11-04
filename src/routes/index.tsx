@@ -100,7 +100,7 @@ function Home() {
             className="absolute inset-0 size-full object-cover object-[70%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/20 to-background" />
-          <Selo className="pointer-events-none absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 text-foreground opacity-40" />
+          <Selo className="pointer-events-none absolute -bottom-6 -right-6 w-40 text-foreground opacity-30" />
         </div>
         <div className="absolute inset-0 hidden sm:block">
           <HeroImage

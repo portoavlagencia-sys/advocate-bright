@@ -1,3 +1,4 @@
+import { Selo } from "@/components/Selo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { HERO_SIZES, heroHome } from "@/lib/hero-images";
@@ -96,9 +97,9 @@ function Home() {
           alt={heroHome.alt}
           className="absolute inset-0 size-full scale-105 object-cover object-right opacity-60 [.light_&]:opacity-75"
         />
-        <img src="/selo-edmom-moraes.svg" alt="" aria-hidden="true" width={1080} height={1080} className="pointer-events-none absolute -right-10 top-1/2 hidden w-[42rem] -translate-y-1/2 opacity-[0.12] invert [.light_&]:invert-0 sm:block" />
         <Aurora />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
+        <Selo className="pointer-events-none absolute -right-16 top-1/2 hidden w-[40rem] -translate-y-1/2 text-foreground opacity-[0.14] lg:block" />
         <div className="relative mx-auto max-w-[84rem] px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-10 lg:pb-40 lg:pt-36">
           <div className="mt-8">
             <h1

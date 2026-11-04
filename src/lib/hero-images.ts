@@ -1,6 +1,3 @@
-import homeFull from "@/assets/hero-home.webp";
-import home768 from "@/assets/hero-home-768.webp";
-import home1280 from "@/assets/hero-home-1280.webp";
 
 import trabalhistaFull from "@/assets/hero-trabalhista.webp";
 import trabalhista768 from "@/assets/hero-trabalhista-768.webp";
@@ -52,13 +49,13 @@ function build(
 }
 
 export const heroHome = build(
-  homeFull,
-  home768,
-  home1280,
-  1920,
-  1920,
-  1280,
-  "Estátua da Justiça com balança, em ambiente claro",
+  escritorioFull,
+  escritorio768,
+  escritorio1280,
+  1400,
+  1400,
+  788,
+  "Recepção do escritório Edmom Moraes Advocacia",
 );
 
 export const heroTrabalhista = build(

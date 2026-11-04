@@ -77,13 +77,15 @@ function AreaPage() {
               Analisar meu caso
             </ReefButton>
           </Magnetic>
-          <Link
-            to="/contato"
+          <a
+            href={whatsappLink("Olá, quero enviar documentos do meu caso para análise.")}
+            target="_blank"
+            rel="noreferrer"
             className="group inline-flex items-center justify-center gap-2 border border-border px-7 py-4 sm:px-8 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors hover:border-green-bright"
           >
             Enviar documentos
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </a>
         </div>
       </PageHero>
 

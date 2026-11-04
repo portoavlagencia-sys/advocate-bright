@@ -104,11 +104,10 @@ const Velaris = ({
 }: VelarisProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [glOk, setGlOk] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
+  const [glOk, setGlOk] = useState(false);
+  useEffect(() => {
+    setGlOk(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
 
   const hexToRgb = (hex: string): [number, number, number] => {
     const h = hex.replace("#", "");

@@ -1,3 +1,4 @@
+import { coverPath, SITE_URL } from "@/lib/blog-cover";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
@@ -48,6 +49,9 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: post.excerpt },
         { property: "og:type", content: "article" },
+        { property: "og:image", content: SITE_URL + coverPath(post.category) },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: SITE_URL + coverPath(post.category) },
       ],
     };
   },
@@ -78,6 +82,7 @@ function PostPage() {
             <p className="mt-6 text-sm text-muted-foreground">
               Por {post.author} — advogado responsável pelo escritório, Goiânia/GO
             </p>
+            <img src={coverPath(post.category)} alt={`Capa: ${post.category}`} width={1200} height={630} decoding="async" className="mt-10 aspect-[1200/630] w-full object-cover" />
             <span className="rule-green mt-10" />
           </Reveal>
 

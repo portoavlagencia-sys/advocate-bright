@@ -17,8 +17,8 @@ export const site = {
   phoneDisplay: "(62) 98206-0993",
   whatsappNumber: "5562982060993",
   email: "edmomm@gmail.com",
-  instagram: "@edmommoraes.adv",
-  instagramUrl: "https://instagram.com/",
+  instagram: "@edmom.moraes",
+  instagramUrl: "https://www.instagram.com/edmom.moraes/",
   city: "Goiânia · Goiás · atendimento em todo o Brasil e no exterior",
   hours: "Segunda a sexta, das 9h às 18h (horário de Brasília)",
 } as const;

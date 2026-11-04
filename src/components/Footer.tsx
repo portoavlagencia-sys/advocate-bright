@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Logo className="h-14 w-auto text-foreground" />
+            <Logo className="h-11 w-auto text-foreground" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Advocacia dedicada a trabalhadores, famílias e patrimônio, com atendimento
               presencial e remoto para clientes no Brasil e no exterior.

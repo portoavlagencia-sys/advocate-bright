@@ -231,7 +231,7 @@ const Velaris = ({
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bg, speed, grain]);
+  }, [bg, speed, grain, glOk]);
 
   return (
     <div

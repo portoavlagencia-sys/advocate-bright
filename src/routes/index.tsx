@@ -123,7 +123,7 @@ function Home() {
             <h1
               className="block max-w-5xl text-[2.3rem] font-light leading-[1.08] tracking-tight sm:text-6xl lg:text-[5.2rem]"
             >
-              Advogado em Goiânia para <span className="font-normal text-green-bright">trabalho, imóveis, herança e família</span>.
+              Advogado em Goiânia - <span className="font-normal text-green-bright">Direito do trabalho, imóveis, herança e família</span>.
             </h1>
           </div>
           <div>

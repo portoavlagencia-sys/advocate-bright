@@ -94,7 +94,7 @@ function Home() {
           width={heroHome.width}
           height={heroHome.height}
           alt={heroHome.alt}
-          className="absolute inset-0 size-full scale-105 object-cover object-right opacity-70 [.light_&]:opacity-90"
+          className="absolute inset-0 size-full scale-105 object-cover object-right opacity-60 [.light_&]:opacity-75"
         />
         <Aurora />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />

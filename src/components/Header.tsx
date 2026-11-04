@@ -59,7 +59,7 @@ export function Header() {
       >
         <Link to="/" className="group flex items-center" aria-label={site.name}>
           <Logo
-            className={`w-auto text-foreground transition-[height,transform] duration-500 group-hover:scale-[1.03] ${
+            className={`w-auto shrink-0 text-foreground transition-[height,transform] duration-500 group-hover:scale-[1.03] ${
               scrolled ? "h-11 sm:h-12" : "h-12 sm:h-16"
             }`}
           />

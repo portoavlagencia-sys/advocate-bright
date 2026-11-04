@@ -1,6 +1,6 @@
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="130 200 2980 620" role="img" aria-label="Edmom Moraes Advocacia" className={`logo-svg ${className}`} fill="currentColor">
+    <svg viewBox="130 200 3420 620" role="img" aria-label="Edmom Moraes Advocacia" className={`logo-svg ${className}`} fill="currentColor">
 <g>
     <rect x="155.49" y="230.73" width="366.91" height="54"/>
     <rect x="156.39" y="487.20" width="307.93" height="54"/>

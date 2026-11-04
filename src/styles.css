@@ -304,3 +304,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+.logo-svg .logo-g {
+  fill: var(--green-bright);
+  stroke: var(--green-bright);
+}

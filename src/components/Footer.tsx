@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/logo-edmom-moraes.png.asset.json";
+import { Logo } from "@/components/Logo";
 import { areas, site, whatsappLink } from "@/lib/site";
 
 export function Footer() {
@@ -8,15 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-6 sm:py-20 lg:px-10">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <img
-              src={logo.url}
-              alt={`${site.name} — logotipo`}
-              width={200}
-              height={200}
-              loading="lazy"
-              decoding="async"
-              className="h-14 w-14 object-contain brightness-0 invert"
-            />
+            <Logo className="h-14 w-auto text-foreground" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Advocacia dedicada a trabalhadores, famílias e patrimônio, com atendimento
               presencial e remoto para clientes no Brasil e no exterior.

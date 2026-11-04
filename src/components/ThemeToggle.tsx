@@ -4,11 +4,11 @@ import { Moon, Sun } from "lucide-react";
 const STORAGE_KEY = "em-theme";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    const isLight = saved === "light";
+    const isLight = saved !== "dark";
     setLight(isLight);
     document.documentElement.classList.toggle("light", isLight);
   }, []);

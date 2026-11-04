@@ -1,6 +1,6 @@
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="130 200 2800 620" role="img" aria-label="Edmom Moraes Advocacia" className={`logo-svg ${className}`} fill="currentColor">
+    <svg viewBox="130 200 2980 620" role="img" aria-label="Edmom Moraes Advocacia" className={`logo-svg ${className}`} fill="currentColor">
 <g>
     <rect x="155.49" y="230.73" width="366.91" height="54"/>
     <rect x="156.39" y="487.20" width="307.93" height="54"/>
@@ -23,7 +23,7 @@ export function Logo({ className = "" }: { className?: string }) {
     <path className="logo-g" d="M3141.18,525.77v-165.79h121.02v26.05h-90.23v113.68h93.55v26.05h-124.34ZM3169.6,454.25v-25.34h82.42v25.34h-82.42Z"/>
     <path className="logo-g" d="M3351.25,528.14c-12.95,0-25.3-1.86-37.07-5.57-11.76-3.71-21.2-8.48-28.3-14.33l10.66-23.92c6.63,5.21,14.84,9.55,24.63,13.03,9.79,3.47,19.81,5.21,30.08,5.21,8.68,0,15.71-.95,21.08-2.84,5.37-1.9,9.31-4.46,11.84-7.7,2.52-3.23,3.79-6.91,3.79-11.01,0-5.05-1.82-9.12-5.45-12.2-3.63-3.08-8.33-5.53-14.09-7.34-5.77-1.81-12.16-3.47-19.18-4.97-7.03-1.5-14.06-3.35-21.08-5.57-7.03-2.21-13.46-5.01-19.3-8.41-5.84-3.39-10.54-7.93-14.09-13.62-3.55-5.68-5.33-12.94-5.33-21.79s2.41-17.25,7.22-24.75c4.81-7.5,12.16-13.5,22.03-18,9.87-4.5,22.38-6.75,37.54-6.75,9.95,0,19.81,1.26,29.6,3.79,9.79,2.53,18.31,6.16,25.58,10.89l-9.71,23.92c-7.42-4.42-15.08-7.7-22.97-9.83-7.9-2.13-15.48-3.2-22.74-3.2-8.37,0-15.24,1.03-20.6,3.08-5.37,2.05-9.28,4.78-11.72,8.17-2.45,3.4-3.67,7.14-3.67,11.25,0,5.05,1.78,9.12,5.33,12.2,3.55,3.08,8.21,5.49,13.97,7.22,5.76,1.74,12.2,3.4,19.3,4.97,7.11,1.58,14.13,3.43,21.08,5.57,6.94,2.13,13.34,4.9,19.18,8.29,5.84,3.4,10.54,7.9,14.09,13.5,3.55,5.61,5.33,12.75,5.33,21.43s-2.41,17.01-7.22,24.51c-4.82,7.5-12.2,13.5-22.15,18-9.95,4.5-22.5,6.75-37.66,6.75Z"/>
   </g>
-  <text fontFamily="Poppins, sans-serif" fontSize="150" fontWeight="500" letterSpacing="18" transform="translate(1952.86 768.84)"><tspan>A</tspan><tspan>DV</tspan><tspan>O</tspan><tspan>C</tspan><tspan>A</tspan><tspan>CIA</tspan></text>
+  <text fontFamily="Poppins, sans-serif" fontSize="140" fontWeight="500" letterSpacing="10" transform="translate(1952.86 768.84)"><tspan>A</tspan><tspan>DV</tspan><tspan>O</tspan><tspan>C</tspan><tspan>A</tspan><tspan>CIA</tspan></text>
   <rect x="2124.42" y="589.55" width="452.56" height="13.01"/>
     </svg>
   );
